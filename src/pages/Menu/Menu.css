@@ -1,0 +1,150 @@
+/* Menu.css - Zeger Coffee Menu (Red Theme) */
+.menu-page {
+    padding-top: 75px;
+    background-color: var(--zeger-bg);
+    min-height: 100vh;
+}
+
+.menu-hero {
+    background-color: var(--zeger-red);
+    color: white;
+    padding: 80px 20px;
+    text-align: left;
+    display: flex;
+    justify-content: center;
+}
+
+.menu-header-content {
+    max-width: 1200px;
+    width: 100%;
+}
+
+.menu-header-content h1 {
+    font-size: 4rem;
+    font-weight: 800;
+    margin-bottom: 10px;
+    letter-spacing: -1px;
+}
+
+.menu-header-content p {
+    font-size: 1.2rem;
+    letter-spacing: 2px;
+    font-weight: 600;
+    opacity: 0.9;
+}
+
+.menu-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 40px;
+    padding: 60px 0;
+}
+
+.menu-section {
+    background: white;
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.03);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.category-title {
+    color: white;
+    background-color: var(--zeger-red);
+    display: inline-block;
+    padding: 8px 16px;
+    border-radius: 8px;
+    font-weight: 700;
+    font-size: 1.2rem;
+    margin-bottom: 24px;
+    box-shadow: 2px 4px 10px rgba(230, 0, 18, 0.2);
+}
+
+.item-header {
+    display: flex;
+    border-bottom: 2px solid var(--zeger-light);
+    padding-bottom: 10px;
+    margin-bottom: 15px;
+    font-weight: 700;
+    color: var(--zeger-dark);
+}
+
+.item-name {
+    flex: 1;
+}
+
+.size-label {
+    width: 60px;
+    text-align: center;
+    background: var(--zeger-red);
+    color: white;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    padding: 2px 0;
+    margin-left: 10px;
+}
+
+.s-label {
+    background-color: var(--zeger-dark);
+}
+
+.l-label {
+    background-color: var(--zeger-red);
+}
+
+.onel-label {
+    background-color: #8b0000;
+}
+
+/* Dark Red */
+
+
+.item-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.menu-item {
+    display: flex;
+    align-items: center;
+    padding: 12px 0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    font-size: 1.1rem;
+}
+
+.menu-item:last-child {
+    border-bottom: none;
+}
+
+.item-name {
+    font-weight: 500;
+    color: var(--zeger-dark);
+}
+
+.item-price {
+    width: 60px;
+    text-align: center;
+    font-weight: 600;
+    margin-left: 10px;
+    color: var(--zeger-gray);
+}
+
+.s-size {
+    color: var(--zeger-dark);
+}
+
+.l-size {
+    color: var(--zeger-red);
+}
+
+.onel-size {
+    color: var(--zeger-red);
+    font-weight: 700;
+}
+
+@media (max-width: 600px) {
+    .menu-grid {
+        grid-template-columns: 1fr;
+    }
+}

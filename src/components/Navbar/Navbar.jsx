@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X, ChevronDown } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import './Navbar.css';
 
 const Navbar = () => {
@@ -18,7 +19,14 @@ const Navbar = () => {
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
 
-    const menuItems = ['About', 'Menu', 'Store', 'Investors', 'GCG', 'Collaboration', 'News', 'Career', 'Contact Us'];
+    const menuItems = [
+        { name: 'About', path: '/' },
+        { name: 'Menu', path: '/menu' },
+        { name: 'Store', path: '/store' },
+        { name: 'Collaboration', path: '/collaboration' },
+        { name: 'News', path: '/news' },
+        { name: 'Contact Us', path: '/contact-us' }
+    ];
 
     // Lock body scroll when mobile menu is open
     useEffect(() => {
@@ -34,22 +42,20 @@ const Navbar = () => {
             <nav className={`navbar ${isScrolled ? 'scrolled' : 'top'}`}>
                 <div className="container nav-content">
                     {/* Logo */}
-                    <div className="nav-logo">
-                        <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            viewBox="0 0 24 24"
-                            className="bean-icon"
-                        >
-                            <path d="M17.067 5.748c-3.153-2.074-7.53-.448-9.4 3.73-1.603 3.585-1.4 8.784 2.87 10.99 3.016 1.56 7.42-.041 9.4-3.73 1.986-3.69 1.405-8.15-2.87-10.99zm-4.72 10.85c-1.353.473-2.483-1.12-1.745-2.146 1.4-1.927 3.255-3.627 3.513-5.27.098-.621.848-1.077 1.433-.674.521.36.49 1.056.241 1.637-.624 1.455-2.003 3.476-2.613 5.344-.192.585-.592.937-.829 1.109z" />
-                        </svg>
-                        <span className="logo-text">Zeger<span className="light"></span></span>
-                    </div>
+                    <Link to="/" className="nav-logo" style={{ textDecoration: 'none' }}>
+                        <img src="/logo.png" alt="Zeger Logo" style={{ height: '40px', objectFit: 'contain' }} />
+                    </Link>
 
                     {/* Desktop Menu - Exact Fore layout */}
                     <ul className="nav-desktop-menu">
                         {menuItems.map((item) => (
-                            <li key={item}><a href={`#${item.toLowerCase().replace(' ', '-')}`}>{item}</a></li>
+                            <li key={item.name}>
+                                <Link to={item.path}>{item.name}</Link>
+                            </li>
                         ))}
+                        <li>
+                            <Link to="/download-app" style={{ color: 'var(--zeger-dark)', fontWeight: 700 }}>App</Link>
+                        </li>
                     </ul>
 
                     {/* Desktop Right Actions */}
@@ -91,10 +97,9 @@ const Navbar = () => {
                         transition={{ type: 'spring', damping: 25, stiffness: 200 }}
                     >
                         <div className="mobile-menu-header">
-                            <div className="nav-logo dark-logo">
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" className="bean-icon"><path d="M17.067 5.748c-3.153-2.074-7.53-.448-9.4 3.73-1.603 3.585-1.4 8.784 2.87 10.99 3.016 1.56 7.42-.041 9.4-3.73 1.986-3.69 1.405-8.15-2.87-10.99zm-4.72 10.85c-1.353.473-2.483-1.12-1.745-2.146 1.4-1.927 3.255-3.627 3.513-5.27.098-.621.848-1.077 1.433-.674.521.36.49 1.056.241 1.637-.624 1.455-2.003 3.476-2.613 5.344-.192.585-.592.937-.829 1.109z" /></svg>
-                                <span className="logo-text">Zeger<span className="light"></span></span>
-                            </div>
+                            <Link to="/" className="nav-logo dark-logo" style={{ textDecoration: 'none' }} onClick={() => setMobileMenuOpen(false)}>
+                                <img src="/logo.png" alt="Zeger Logo" style={{ height: '35px', objectFit: 'contain' }} />
+                            </Link>
                             <button className="close-btn" onClick={() => setMobileMenuOpen(false)} aria-label="Close Menu">
                                 <X size={28} />
                             </button>
@@ -104,16 +109,25 @@ const Navbar = () => {
                             <ul className="mobile-menu-links">
                                 {menuItems.map((item, i) => (
                                     <motion.li
-                                        key={item}
+                                        key={item.name}
                                         initial={{ opacity: 0, y: 20 }}
                                         animate={{ opacity: 1, y: 0 }}
                                         transition={{ delay: 0.05 + i * 0.05 }}
                                     >
-                                        <a href={`#${item.toLowerCase().replace(' ', '-')}`} onClick={() => setMobileMenuOpen(false)}>
-                                            {item}
-                                        </a>
+                                        <Link to={item.path} onClick={() => setMobileMenuOpen(false)}>
+                                            {item.name}
+                                        </Link>
                                     </motion.li>
                                 ))}
+                                <motion.li
+                                    initial={{ opacity: 0, y: 20 }}
+                                    animate={{ opacity: 1, y: 0 }}
+                                    transition={{ delay: 0.05 + menuItems.length * 0.05 }}
+                                >
+                                    <Link to="/download-app" onClick={() => setMobileMenuOpen(false)} style={{ color: 'var(--zeger-red)' }}>
+                                        Download App
+                                    </Link>
+                                </motion.li>
                             </ul>
 
                             <motion.div
