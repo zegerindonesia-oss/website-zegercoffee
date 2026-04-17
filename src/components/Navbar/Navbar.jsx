@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, X, User } from 'lucide-react';
+import { Menu, X, ChevronDown } from 'lucide-react';
 import './Navbar.css';
 
 const Navbar = () => {
@@ -9,14 +9,16 @@ const Navbar = () => {
 
     useEffect(() => {
         const handleScroll = () => {
-            setIsScrolled(window.scrollY > 50);
+            // Since Hero is now white, navbar is always light. 
+            // We just add shadow when scrolled.
+            setIsScrolled(window.scrollY > 10);
         };
 
         window.addEventListener('scroll', handleScroll);
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
 
-    const menuItems = ['Home', 'Menu', 'Our Story', 'Locations'];
+    const menuItems = ['About', 'Menu', 'Store', 'Investors', 'GCG', 'Collaboration', 'News', 'Career', 'Contact Us'];
 
     // Lock body scroll when mobile menu is open
     useEffect(() => {
@@ -40,10 +42,10 @@ const Navbar = () => {
                         >
                             <path d="M17.067 5.748c-3.153-2.074-7.53-.448-9.4 3.73-1.603 3.585-1.4 8.784 2.87 10.99 3.016 1.56 7.42-.041 9.4-3.73 1.986-3.69 1.405-8.15-2.87-10.99zm-4.72 10.85c-1.353.473-2.483-1.12-1.745-2.146 1.4-1.927 3.255-3.627 3.513-5.27.098-.621.848-1.077 1.433-.674.521.36.49 1.056.241 1.637-.624 1.455-2.003 3.476-2.613 5.344-.192.585-.592.937-.829 1.109z" />
                         </svg>
-                        <span className="logo-text">Zeger! <span className="light">Coffee</span></span>
+                        <span className="logo-text">Zeger<span className="light"></span></span>
                     </div>
 
-                    {/* Desktop Menu */}
+                    {/* Desktop Menu - Exact Fore layout */}
                     <ul className="nav-desktop-menu">
                         {menuItems.map((item) => (
                             <li key={item}><a href={`#${item.toLowerCase().replace(' ', '-')}`}>{item}</a></li>
@@ -52,11 +54,19 @@ const Navbar = () => {
 
                     {/* Desktop Right Actions */}
                     <div className="nav-actions">
-                        <button className="icon-btn" aria-label="Account">
-                            <User size={20} />
-                            <span className="login-text">Login</span>
-                        </button>
-                        <button className="cta-btn">Order Now</button>
+                        <div className="country-selector">
+                            <span className="flag">🇮🇩</span>
+                            <span className="country-code">ID</span>
+                            <ChevronDown size={14} className="chevron" />
+                        </div>
+
+                        <button className="cta-btn outline">Order Now</button>
+
+                        <div className="lang-toggle">
+                            <span className="lang active">EN</span>
+                            <span className="separator">|</span>
+                            <span className="lang">ID</span>
+                        </div>
                     </div>
 
                     {/* Mobile Menu Toggle */}
@@ -83,7 +93,7 @@ const Navbar = () => {
                         <div className="mobile-menu-header">
                             <div className="nav-logo dark-logo">
                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" className="bean-icon"><path d="M17.067 5.748c-3.153-2.074-7.53-.448-9.4 3.73-1.603 3.585-1.4 8.784 2.87 10.99 3.016 1.56 7.42-.041 9.4-3.73 1.986-3.69 1.405-8.15-2.87-10.99zm-4.72 10.85c-1.353.473-2.483-1.12-1.745-2.146 1.4-1.927 3.255-3.627 3.513-5.27.098-.621.848-1.077 1.433-.674.521.36.49 1.056.241 1.637-.624 1.455-2.003 3.476-2.613 5.344-.192.585-.592.937-.829 1.109z" /></svg>
-                                <span className="logo-text">Zeger! <span className="light">Coffee</span></span>
+                                <span className="logo-text">Zeger<span className="light"></span></span>
                             </div>
                             <button className="close-btn" onClick={() => setMobileMenuOpen(false)} aria-label="Close Menu">
                                 <X size={28} />
@@ -97,7 +107,7 @@ const Navbar = () => {
                                         key={item}
                                         initial={{ opacity: 0, y: 20 }}
                                         animate={{ opacity: 1, y: 0 }}
-                                        transition={{ delay: 0.1 + i * 0.1 }}
+                                        transition={{ delay: 0.05 + i * 0.05 }}
                                     >
                                         <a href={`#${item.toLowerCase().replace(' ', '-')}`} onClick={() => setMobileMenuOpen(false)}>
                                             {item}
@@ -112,11 +122,12 @@ const Navbar = () => {
                                 animate={{ opacity: 1 }}
                                 transition={{ delay: 0.5 }}
                             >
-                                <button className="icon-btn mobile-login">
-                                    <User size={20} />
-                                    <span>Login or Register</span>
-                                </button>
-                                <button className="cta-btn full">Order Now</button>
+                                <div className="lang-toggle-mobile">
+                                    <span className="lang active">EN</span>
+                                    <span className="separator">|</span>
+                                    <span className="lang">ID</span>
+                                </div>
+                                <button className="cta-btn outline full">Order Now</button>
                             </motion.div>
                         </div>
                     </motion.div>

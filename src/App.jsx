@@ -2,7 +2,6 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import Navbar from './components/Navbar/Navbar';
 import Hero from './components/Hero/Hero';
-import Process from './components/Process/Process';
 
 function App() {
   return (
@@ -10,10 +9,12 @@ function App() {
       <Navbar />
 
       <main>
-        <section id="home">
+        {/* Interactive Sequence Hero replaces the top section */}
+        <section id="about">
           <Hero />
         </section>
 
+        {/* Clean white minimal semantic sections following Fore Coffee / Apple style */}
         <section id="our-story" style={{ padding: '120px 0', backgroundColor: 'var(--zeger-bg)' }}>
           <div className="container" style={{ maxWidth: '800px', textAlign: 'center' }}>
             <motion.h2
@@ -37,10 +38,7 @@ function App() {
           </div>
         </section>
 
-        <section id="menu">
-          <Process />
-        </section>
-
+        {/* Rest of the Awwwards-style locations section */}
         <section id="locations" style={{ padding: '120px 0', backgroundColor: 'var(--zeger-light)' }}>
           <div className="container">
             <motion.div
@@ -100,11 +98,11 @@ function App() {
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="32" height="32" fill="var(--zeger-red)">
               <path d="M17.067 5.748c-3.153-2.074-7.53-.448-9.4 3.73-1.603 3.585-1.4 8.784 2.87 10.99 3.016 1.56 7.42-.041 9.4-3.73 1.986-3.69 1.405-8.15-2.87-10.99zm-4.72 10.85c-1.353.473-2.483-1.12-1.745-2.146 1.4-1.927 3.255-3.627 3.513-5.27.098-.621.848-1.077 1.433-.674.521.36.49 1.056.241 1.637-.624 1.455-2.003 3.476-2.613 5.344-.192.585-.592.937-.829 1.109z" />
             </svg>
-            <span style={{ fontSize: '1.5rem', fontWeight: 700, letterSpacing: '-0.5px' }}>Zeger! <span style={{ fontWeight: 400 }}>Coffee</span></span>
+            <span style={{ fontSize: '1.5rem', fontWeight: 700, letterSpacing: '-0.5px' }}>Zeger <span style={{ fontWeight: 400 }}></span></span>
           </div>
 
           <ul style={{ display: 'flex', gap: '32px', marginBottom: '60px', flexWrap: 'wrap', justifyContent: 'center' }}>
-            {['Home', 'Menu', 'Our Story', 'Locations', 'Careers', 'Contact'].map(item => (
+            {['About', 'Menu', 'Store', 'Investors', 'GCG', 'Collaboration', 'News', 'Career', 'Contact Us'].map(item => (
               <li key={item}>
                 <a href={`#${item.toLowerCase().replace(' ', '-')}`} style={{ color: 'rgba(255,255,255,0.7)', transition: 'color 0.2s', fontWeight: 500 }} onMouseOver={(e) => e.target.style.color = 'white'} onMouseOut={(e) => e.target.style.color = 'rgba(255,255,255,0.7)'}>
                   {item}
