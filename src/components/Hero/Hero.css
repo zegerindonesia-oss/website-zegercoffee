@@ -1,0 +1,115 @@
+/* Hero Section Styles */
+
+.hero-container {
+    position: relative;
+    height: 100vh;
+    min-height: 700px;
+    width: 100%;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    /* Dark text context for navbar when at top */
+    color: white;
+}
+
+.hero-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 120%;
+    /* Extra height for parallax travel */
+    background-image: url('https://images.unsplash.com/photo-1497935586351-b67a49e012bf?q=80&w=2071&auto=format&fit=crop');
+    /* Premium coffee beans/pour */
+    background-size: cover;
+    background-position: center;
+    z-index: -2;
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* Dark gradient to ensure navbar and text are legible */
+    background: linear-gradient(to bottom, rgba(17, 17, 17, 0.7) 0%, rgba(17, 17, 17, 0.4) 50%, rgba(17, 17, 17, 0.8) 100%);
+    z-index: -1;
+}
+
+.hero-content-wrapper {
+    position: relative;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    z-index: 10;
+}
+
+.hero-content {
+    max-width: 800px;
+    padding-top: 80px;
+    /* Offset for navbar */
+}
+
+.hero-badge {
+    display: inline-block;
+    padding: 6px 16px;
+    background-color: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 999px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-bottom: 24px;
+}
+
+.hero-title {
+    font-size: clamp(3rem, 6vw, 5.5rem);
+    font-weight: 700;
+    line-height: 1.1;
+    letter-spacing: -2px;
+    margin-bottom: 24px;
+}
+
+.text-red {
+    color: var(--zeger-red);
+}
+
+.hero-subtitle {
+    font-size: clamp(1.1rem, 2vw, 1.35rem);
+    font-weight: 300;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.85);
+    margin-bottom: 40px;
+    max-width: 600px;
+}
+
+.hero-actions {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+.hero-btn {
+    padding: 16px 36px;
+    font-size: 1.05rem;
+}
+
+.outline-btn {
+    background-color: transparent;
+    color: white;
+    padding: 14px 34px;
+    border: 2px solid white;
+    border-radius: 999px;
+    font-weight: 600;
+    font-size: 1.05rem;
+    transition: all 0.3s ease;
+}
+
+.outline-btn:hover {
+    background-color: white;
+    color: var(--zeger-dark);
+}

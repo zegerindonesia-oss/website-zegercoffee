@@ -1,0 +1,234 @@
+/* Navbar Styles: Fore Coffee Replication */
+
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 80px;
+    z-index: 100;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    display: flex;
+    align-items: center;
+}
+
+/* STATE 1 - TOP: Transparent, White text, floating */
+.navbar.top {
+    background-color: transparent;
+    color: var(--zeger-bg);
+    /* White text assuming dark hero */
+}
+
+.navbar.top .bean-icon {
+    fill: var(--zeger-red);
+    /* Logo bean always red */
+}
+
+/* STATE 2 - SCROLLED: Solid white, shadow, dark text, blur */
+.navbar.scrolled {
+    background-color: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    /* shadow-md/lg */
+    color: var(--zeger-dark);
+}
+
+.navbar.scrolled .bean-icon {
+    fill: var(--zeger-red);
+}
+
+.nav-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+}
+
+/* Logo */
+.nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+}
+
+.bean-icon {
+    width: 28px;
+    height: 28px;
+}
+
+.logo-text {
+    font-size: 1.25rem;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+}
+
+.logo-text .light {
+    font-weight: 400;
+}
+
+/* Desktop Menu */
+.nav-desktop-menu {
+    display: flex;
+    gap: 40px;
+    /* Generous spacing */
+}
+
+.nav-desktop-menu li a {
+    font-size: 1rem;
+    font-weight: 500;
+    position: relative;
+    transition: opacity 0.2s ease;
+}
+
+.nav-desktop-menu li a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -4px;
+    width: 0%;
+    height: 2px;
+    background-color: var(--zeger-red);
+    transition: width 0.3s ease;
+}
+
+.nav-desktop-menu li a:hover {
+    opacity: 0.8;
+}
+
+.nav-desktop-menu li a:hover::after {
+    width: 100%;
+    /* Subtle underline animation */
+}
+
+/* Actions */
+.nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.icon-btn {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    color: inherit;
+    font-weight: 500;
+    font-size: 0.95rem;
+    transition: opacity 0.2s ease;
+}
+
+.icon-btn:hover {
+    opacity: 0.7;
+}
+
+.cta-btn {
+    background-color: var(--zeger-red);
+    color: white;
+    padding: 10px 24px;
+    border-radius: 999px;
+    /* xl rounded */
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+}
+
+.cta-btn:hover {
+    background-color: var(--zeger-red-dark);
+    transform: scale(1.03);
+    box-shadow: 0 4px 14px rgba(230, 0, 18, 0.4);
+    /* red shadow glow */
+}
+
+/* Mobile Toggle */
+.mobile-toggle {
+    display: none;
+    color: inherit;
+}
+
+/* ---------------- MOBILE OVERLAY ---------------- */
+.mobile-menu-overlay {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: var(--zeger-bg);
+    z-index: 999;
+    display: flex;
+    flex-direction: column;
+}
+
+.mobile-menu-header {
+    height: 80px;
+    padding: 0 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.dark-logo {
+    color: var(--zeger-dark);
+}
+
+.close-btn {
+    color: var(--zeger-dark);
+}
+
+.mobile-menu-body {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 3rem 2rem;
+}
+
+.mobile-menu-links {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    align-items: center;
+}
+
+.mobile-menu-links li a {
+    color: var(--zeger-dark);
+    font-size: 2rem;
+    font-weight: 600;
+    letter-spacing: -1px;
+}
+
+.mobile-menu-bottom {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    align-items: center;
+    width: 100%;
+    padding-bottom: 2rem;
+}
+
+.mobile-login {
+    color: var(--zeger-dark);
+    font-size: 1.1rem;
+    padding: 1rem;
+}
+
+.cta-btn.full {
+    width: 100%;
+    padding: 16px;
+    font-size: 1.1rem;
+}
+
+/* MEDIA QUERIES */
+@media (max-width: 900px) {
+
+    .nav-desktop-menu,
+    .nav-actions {
+        display: none;
+    }
+
+    .mobile-toggle {
+        display: block;
+    }
+}
