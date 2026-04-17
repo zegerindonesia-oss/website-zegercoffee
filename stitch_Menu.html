@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "background": "#fbf9f6",
+                    "primary": "#ba0015",
+                    "secondary": "#b22929",
+                    "tertiary-container": "#757278",
+                    "inverse-on-surface": "#f2f0ed",
+                    "surface-container-low": "#f5f3f0",
+                    "on-tertiary-fixed": "#1c1b20",
+                    "error-container": "#ffdad6",
+                    "surface-container-lowest": "#ffffff",
+                    "tertiary": "#5c5a60",
+                    "tertiary-fixed": "#e5e1e8",
+                    "surface-variant": "#e4e2df",
+                    "surface-container": "#efeeeb",
+                    "on-primary": "#ffffff",
+                    "inverse-primary": "#ffb4ac",
+                    "surface-dim": "#dbdad7",
+                    "on-primary-fixed-variant": "#93000e",
+                    "error": "#ba1a1a",
+                    "primary-fixed-dim": "#ffb4ac",
+                    "on-tertiary-container": "#fdf9ff",
+                    "surface-container-high": "#eae8e5",
+                    "on-secondary-fixed-variant": "#900b15",
+                    "on-secondary": "#ffffff",
+                    "outline-variant": "#e7bdb8",
+                    "on-background": "#1b1c1a",
+                    "on-tertiary": "#ffffff",
+                    "on-error": "#ffffff",
+                    "secondary-container": "#ff605a",
+                    "on-primary-container": "#fffaf9",
+                    "surface-tint": "#c00016",
+                    "secondary-fixed-dim": "#ffb3ad",
+                    "primary-fixed": "#ffdad6",
+                    "on-surface-variant": "#5d3f3c",
+                    "outline": "#926f6b",
+                    "inverse-surface": "#30312f",
+                    "on-error-container": "#93000a",
+                    "primary-container": "#e21f26",
+                    "on-surface": "#1b1c1a",
+                    "tertiary-fixed-dim": "#c9c5cc",
+                    "surface-bright": "#fbf9f6",
+                    "on-primary-fixed": "#410003",
+                    "on-tertiary-fixed-variant": "#47464b",
+                    "surface-container-highest": "#e4e2df",
+                    "secondary-fixed": "#ffdad6",
+                    "surface": "#fbf9f6",
+                    "on-secondary-fixed": "#410003",
+                    "on-secondary-container": "#650008"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "1.5rem",
+                    "full": "9999px"
+            },
+            "fontFamily": {
+                    "headline": ["Plus Jakarta Sans"],
+                    "body": ["Plus Jakarta Sans"],
+                    "label": ["Plus Jakarta Sans"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-nav {
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+        }
+        .editorial-shadow {
+            box-shadow: 0 8px 24px rgba(27, 28, 26, 0.08);
+        }
+        .primary-gradient {
+            background: linear-gradient(135deg, #ba0015 0%, #e21f26 100%);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body selection:bg-primary selection:text-on-primary">
+<!-- Top Navigation Bar -->
+<header class="bg-stone-50/85 dark:bg-stone-900/85 backdrop-blur-md docked full-width top-0 sticky z-50 transition-colors duration-300">
+<nav class="flex justify-between items-center px-8 py-4 max-w-7xl mx-auto w-full font-['Plus_Jakarta_Sans'] tracking-tight">
+<div class="text-2xl font-black italic text-red-600 dark:text-red-500">Zeger Coffee</div>
+<div class="hidden md:flex items-center gap-8">
+<a class="text-red-600 dark:text-red-500 font-bold border-b-2 border-red-600 hover:text-red-500 dark:hover:text-red-400 transition-colors duration-300" href="#">Menu</a>
+<a class="text-stone-700 dark:text-stone-300 font-medium hover:text-red-500 dark:hover:text-red-400 transition-colors duration-300" href="#">Store</a>
+<a class="text-stone-700 dark:text-stone-300 font-medium hover:text-red-500 dark:hover:text-red-400 transition-colors duration-300" href="#">Locations</a>
+<a class="text-stone-700 dark:text-stone-300 font-medium hover:text-red-500 dark:hover:text-red-400 transition-colors duration-300" href="#">About</a>
+</div>
+<div class="flex items-center gap-6">
+<div class="hidden lg:flex items-center bg-surface-container-low px-4 py-2 rounded-full">
+<span class="material-symbols-outlined text-sm text-on-surface-variant mr-2">search</span>
+<input class="bg-transparent border-none focus:ring-0 text-sm w-32 placeholder:text-stone-400" placeholder="Find your blend..." type="text"/>
+</div>
+<button class="primary-gradient text-on-primary px-6 py-2.5 rounded-full font-bold text-sm scale-95 duration-200 active:opacity-80">Order Now</button>
+</div>
+</nav>
+</header>
+<main class="max-w-7xl mx-auto px-6 py-12">
+<!-- Editorial Hero Section -->
+<section class="mb-20">
+<div class="relative overflow-hidden rounded-3xl bg-surface-container-low min-h-[400px] flex items-center">
+<div class="absolute inset-0 z-0">
+<img class="w-full h-full object-cover opacity-90" data-alt="cinematic close-up of a barista pouring latte art in a sun-drenched modern cafe with rich wood textures and soft steam" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDbbDwR1lEULqXdDL0rmnRJl4klTfGdFnyBi6nI_DkMihhMmkoglu9klkHsAumpvOkzU7FRVNnNvsqZ0Rs4O7sJDMOhP-aVD5uFEfqyxz-zm0HXdTTpVibB1fNPmZKduNaKP9jGll6ncaMEFmbqwe-H9xOPzIMTgdCbchvACzRKzSsXjZt_4zFTSOGh9hxS4ZMEXdp5O3CGdAsCQiXlngqVjZ_ppohIO8eT82XBKQX0UPzaMBpvE7qMy1PTt272FYVjL00ye2TOFFY"/>
+<div class="absolute inset-0 bg-gradient-to-r from-background via-background/40 to-transparent"></div>
+</div>
+<div class="relative z-10 p-12 lg:p-20 max-w-2xl">
+<span class="text-primary font-bold tracking-[0.2em] text-xs uppercase mb-4 block">The Art of Roasting</span>
+<h1 class="text-5xl md:text-7xl font-black italic tracking-tighter text-on-surface mb-6 leading-tight">
+                        CRAFTED FOR<br/><span class="text-primary">YOUR MOMENT.</span>
+</h1>
+<p class="text-on-surface-variant text-lg mb-8 leading-relaxed max-w-md">
+                        Explore our curated selection of signature blends and seasonal creations, designed to elevate your daily ritual.
+                    </p>
+<div class="flex gap-4">
+<button class="primary-gradient text-on-primary px-8 py-4 rounded-xl font-bold editorial-shadow hover:scale-105 transition-transform">Explore Menu</button>
+<button class="bg-surface-container-highest/20 backdrop-blur-sm text-on-surface px-8 py-4 rounded-xl font-bold hover:bg-surface-container-highest transition-colors">Our Story</button>
+</div>
+</div>
+</div>
+</section>
+<!-- Menu Categories Navigation -->
+<div class="flex flex-wrap gap-4 mb-12 items-center justify-center">
+<button class="px-6 py-2 rounded-full bg-primary text-on-primary font-bold text-sm uppercase tracking-widest">All</button>
+<button class="px-6 py-2 rounded-full bg-surface-container-highest text-on-surface-variant font-bold text-sm uppercase tracking-widest hover:bg-surface-container-high transition-colors">Espresso Based</button>
+<button class="px-6 py-2 rounded-full bg-surface-container-highest text-on-surface-variant font-bold text-sm uppercase tracking-widest hover:bg-surface-container-high transition-colors">Creampresso</button>
+<button class="px-6 py-2 rounded-full bg-surface-container-highest text-on-surface-variant font-bold text-sm uppercase tracking-widest hover:bg-surface-container-high transition-colors">Milk Based</button>
+<button class="px-6 py-2 rounded-full bg-surface-container-highest text-on-surface-variant font-bold text-sm uppercase tracking-widest hover:bg-surface-container-high transition-colors">Refresher</button>
+</div>
+<!-- Menu Grid: Espresso Based -->
+<section class="mb-24">
+<div class="flex items-baseline gap-4 mb-8">
+<h2 class="text-3xl font-black italic tracking-tighter uppercase text-primary">Espresso Based</h2>
+<div class="h-1 flex-grow bg-surface-container-low rounded-full"></div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+<!-- Product Card 1 -->
+<div class="group relative bg-surface rounded-3xl p-6 transition-all duration-500 hover:bg-surface-container-low editorial-shadow">
+<div class="relative h-64 mb-6 overflow-hidden rounded-2xl bg-surface-container-high">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" data-alt="minimalist overhead shot of a classic latte with intricate tulip latte art in a ceramic white cup" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCbwFk3tHyE49NyOIzt4aJNHaIaV74v5QTGTVrN3klVbZFDDh88JzhPeL0PM6injZW_-4GwxHx3xxcSl1JHdVhcqG_WwW47pnmMZsH19bfXqlz8plg_Wncvm1gAmrPNi8mbP1a9SiTybwauu55GrDlfsNQjjf5IufDLiL1ZKqX67rZ0eG-s83w6MDk2bAXnVIOgeNfpDzkaM_MuwoD0Jcj1ly1-QJw-iSh-DJu1IBAPStPiPGnanuyGwYhjSP0F9rJ-ROJsC7M0IVc"/>
+<div class="absolute top-4 right-4 bg-primary text-on-primary px-3 py-1 rounded-full text-xs font-bold">HOT/ICE</div>
+</div>
+<div class="flex justify-between items-start mb-2">
+<h3 class="text-xl font-bold tracking-tight">Kopi Susu Gula Aren</h3>
+<span class="text-lg font-black text-primary italic">25k</span>
+</div>
+<p class="text-on-surface-variant text-sm leading-relaxed mb-6">Signature espresso with creamy milk and local palm sugar syrup.</p>
+<button class="w-full py-3 rounded-xl border border-outline-variant/20 text-primary font-bold hover:bg-primary hover:text-on-primary transition-all">Add to Cart</button>
+</div>
+<!-- Product Card 2 -->
+<div class="group relative bg-surface rounded-3xl p-6 transition-all duration-500 hover:bg-surface-container-low editorial-shadow">
+<div class="relative h-64 mb-6 overflow-hidden rounded-2xl bg-surface-container-high">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" data-alt="tall glass of iced Americano with condensation and crystal clear ice cubes against a clean beige background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCyICFpFDv68v-WwrQOs-mkhDwIe5FQDDfGocwoKNXdTgAhQHQu8swHYp2_OowPsU2OJM_LsG-l8WXI2AnvA-MAmm6Nu3hsvvW8uoIfCIHNfzBFpz1jLGlli8yAA6H6awgTx3Vb0IEghxV8zCBSZKj7Zks4MKD8bEH15v2GslLzGGfiWlkOR16V_ufyQvJl1ZYV7WJgXoFoIvnA7n0pD1Of_KEj8N-NvxFomlM1Gm4dQkvq2QDyF7RfjMz7RtNYahyrXDKVafLfHFg"/>
+<div class="absolute top-4 right-4 bg-on-surface text-background px-3 py-1 rounded-full text-xs font-bold">ICE ONLY</div>
+</div>
+<div class="flex justify-between items-start mb-2">
+<h3 class="text-xl font-bold tracking-tight">Ice Americano</h3>
+<span class="text-lg font-black text-primary italic">20k</span>
+</div>
+<p class="text-on-surface-variant text-sm leading-relaxed mb-6">Double shot of house blend espresso over chilled mountain spring water.</p>
+<button class="w-full py-3 rounded-xl border border-outline-variant/20 text-primary font-bold hover:bg-primary hover:text-on-primary transition-all">Add to Cart</button>
+</div>
+<!-- Product Card 3 -->
+<div class="group relative bg-surface rounded-3xl p-6 transition-all duration-500 hover:bg-surface-container-low editorial-shadow">
+<div class="relative h-64 mb-6 overflow-hidden rounded-2xl bg-surface-container-high">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" data-alt="creamy hazelnut mocha with chocolate drizzle and scattered hazelnuts on a marble surface" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAoF2jOpnNDcopmIByWIp2SW37QaDgrjXwLMa6MrQ2fDh2fqT35JC0-jw-HnQSrIUatFgPJRAS2CQrRUBQazkfJay27cFVC78iVeILbYvtXwR9a-F2phS_bRDRWTeP3kVE_afvr11Q67unIE4OBRcMWdcd7EwRYuqdSuwC-eYT4UB7AWJcqc6fpF24fr1Ttwk4GeEgMnEQNQBKDx6aFIV6PfNSVAvdVdcMhY19SNGW_Y4tAIWgZ0GKVUw6rWSfV2ccMR2nNH_yO8fE"/>
+</div>
+<div class="flex justify-between items-start mb-2">
+<h3 class="text-xl font-bold tracking-tight">Hazelnut Latte</h3>
+<span class="text-lg font-black text-primary italic">28k</span>
+</div>
+<p class="text-on-surface-variant text-sm leading-relaxed mb-6">Roasted hazelnut notes paired with silky micro-foam and bold espresso.</p>
+<button class="w-full py-3 rounded-xl border border-outline-variant/20 text-primary font-bold hover:bg-primary hover:text-on-primary transition-all">Add to Cart</button>
+</div>
+</div>
+</section>
+<!-- Featured Section: Creampresso -->
+<section class="mb-24 bg-surface-container-low rounded-[3rem] p-12 overflow-hidden relative">
+<div class="absolute top-0 right-0 w-1/3 h-full opacity-10 pointer-events-none">
+<span class="material-symbols-outlined text-[300px] text-primary" style="font-variation-settings: 'FILL' 1;">coffee_maker</span>
+</div>
+<div class="flex flex-col lg:flex-row gap-12 items-center">
+<div class="w-full lg:w-1/2">
+<span class="text-primary font-bold tracking-[0.2em] text-xs uppercase mb-4 block">Seasonal Signature</span>
+<h2 class="text-5xl font-black italic tracking-tighter text-on-surface mb-8">CREAM<span class="text-primary">PRESSO.</span></h2>
+<div class="space-y-6">
+<div class="flex justify-between items-center border-b border-outline-variant/10 pb-4">
+<div>
+<h4 class="text-lg font-bold">Sea Salt Cream Espresso</h4>
+<p class="text-sm text-on-surface-variant">Smooth crema with a touch of Mediterranean sea salt</p>
+</div>
+<span class="text-2xl font-black text-primary">32k</span>
+</div>
+<div class="flex justify-between items-center border-b border-outline-variant/10 pb-4">
+<div>
+<h4 class="text-lg font-bold">Tiramisu Cream Latte</h4>
+<p class="text-sm text-on-surface-variant">Espresso layered with mascarpone-style cream and cocoa</p>
+</div>
+<span class="text-2xl font-black text-primary">35k</span>
+</div>
+<div class="flex justify-between items-center pb-4">
+<div>
+<h4 class="text-lg font-bold">Oat Cream Cold Brew</h4>
+<p class="text-sm text-on-surface-variant">12-hour cold extraction topped with airy oat cream</p>
+</div>
+<span class="text-2xl font-black text-primary">34k</span>
+</div>
+</div>
+</div>
+<div class="w-full lg:w-1/2 relative">
+<div class="relative z-10 aspect-square rounded-3xl overflow-hidden editorial-shadow rotate-3 scale-95">
+<img class="w-full h-full object-cover" data-alt="dramatic close-up of thick white cream being poured into dark espresso creating a swirling marble effect" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD-HnCxHkWpdhCxTrj6WXSr8Vq2Y8eYdqtlWYYbG9b9Y5YXQCM6y8GHIt9A9GPdXYMgG-4NjVZ2OYfaanZbhgtNlsmByt8Fcog2xBjSRAKYEL5cFV6KQcdJ7rgYZZG-hH7qo9zUnl8OhRDX3kHfO62kd0tiZBoX16Fbwjht_eUJU720GJSJOqoVmAZdZbmwqlv9xbnHGlwx7BiNULraC6WHVrSWRVKtnn3pPm4WFcnV4iXJNVbmKFoEuihijYNnOe59-uvgmPkhJMg"/>
+</div>
+<div class="absolute -bottom-8 -left-8 z-20 bg-background p-6 rounded-2xl editorial-shadow">
+<p class="text-primary font-black italic text-3xl">MUST TRY!</p>
+<p class="text-xs uppercase tracking-widest font-bold mt-1">Limited Edition</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Bento Grid: Milk Based & Refresher -->
+<section class="mb-24">
+<div class="grid grid-cols-1 md:grid-cols-4 grid-rows-2 gap-6">
+<!-- Milk Based Large -->
+<div class="md:col-span-2 md:row-span-2 bg-surface rounded-[2rem] p-8 editorial-shadow flex flex-col justify-between overflow-hidden relative">
+<div class="absolute top-0 right-0 w-full h-full">
+<img class="w-full h-full object-cover opacity-20" data-alt="vibrant strawberry milk drink with fresh strawberry slices and mint leaf in a clean glass" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBSVEKRG0wfeR-VZHiM0YSqPWr9OhKa_4yZloR8dcaMBegKY0GHUBBFcZ-3YCfLP2thdA0w0W8OFTuf01AcH308JLQi7bgW6GCmkxmVLqfr3f3CDxtUrJoemI97doQ0AdNoDb6kQtTA_1q8o2lPl4Ee-Q0ZL8jhaJetMiQqP9W_CGaHeX5tRMTcFGzslrAuHIJ3bhe9CoD9FHkeBYdHQUzAOyAPrXElXUoi53eh8nvZZ_Jtr04qCTsxqY2FE1dQDla0wQFCO_eQ2m4"/>
+</div>
+<div class="relative z-10">
+<h2 class="text-3xl font-black italic tracking-tighter uppercase text-primary mb-6">Milk Based</h2>
+<div class="space-y-4">
+<div class="flex justify-between font-bold"><span>Matcha Latte</span><span>28k</span></div>
+<div class="flex justify-between font-bold"><span>Dark Chocolate</span><span>30k</span></div>
+<div class="flex justify-between font-bold"><span>Strawberry Cream</span><span>32k</span></div>
+<div class="flex justify-between font-bold"><span>Taro Bliss</span><span>28k</span></div>
+</div>
+</div>
+<div class="relative z-10 mt-8">
+<button class="primary-gradient text-on-primary px-8 py-3 rounded-xl font-bold">Full Milk Menu</button>
+</div>
+</div>
+<!-- Refresher Card -->
+<div class="md:col-span-2 bg-primary rounded-[2rem] p-8 text-on-primary flex items-center gap-6">
+<div class="w-1/3 aspect-square rounded-2xl overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="refreshing orange and mint iced drink with sparkling bubbles and citrus garnish" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDIXswTq8521IxVgGQZyq_0e652AxBYLGLDTpTBERIe3Vs-qDyAwfiywkPue7TQzaWa89WqDQeaLiZyXM59s4BG4Ktvc-d9qUkT05ilqRUydtoc-AxOkjaTgQ_MrIaG3V7pjRK-eHNvnG9lixqR0NymgQ6hmE7OQJuSaeWt-34JvZ0oYCVwSP9bNvBiifUrb_B1kbFiOjz7dCeHt13E3xu49oS7wsp3Ghy6m0gFrvKQpFEdN9igeALXR7Vh6ecwDnp_UbmnD8uLbms"/>
+</div>
+<div>
+<h2 class="text-2xl font-black italic tracking-tighter uppercase mb-2">Refresher</h2>
+<p class="text-on-primary/80 text-sm mb-4">Iced Lychee Tea, Lemon Sparkler, Sunset Berry.</p>
+<span class="text-xl font-bold">Starting 22k</span>
+</div>
+</div>
+<!-- Banner/Promo -->
+<div class="md:col-span-2 bg-secondary-container rounded-[2rem] p-8 flex items-center justify-between relative overflow-hidden">
+<div class="relative z-10">
+<h3 class="text-on-secondary-container font-black italic text-2xl">ZEGER REWARDS</h3>
+<p class="text-on-secondary-container/80 text-sm">Earn 10 points for every cup purchased.</p>
+</div>
+<div class="relative z-10">
+<span class="material-symbols-outlined text-5xl text-on-secondary-container">stars</span>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-stone-100 dark:bg-stone-950 transition-colors duration-300">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-8 px-8 py-12 max-w-7xl mx-auto w-full font-['Plus_Jakarta_Sans'] text-sm uppercase tracking-widest">
+<div class="space-y-4">
+<div class="text-xl font-black text-red-600 dark:text-red-500">Zeger Coffee</div>
+<p class="normal-case tracking-normal text-stone-600 dark:text-stone-400">Premium roasting and crafted experiences delivered to your neighborhood.</p>
+<div class="flex gap-4">
+<span class="material-symbols-outlined text-red-600">public</span>
+<span class="material-symbols-outlined text-red-600">person</span>
+</div>
+</div>
+<div class="space-y-4">
+<h4 class="font-bold text-stone-900 dark:text-white">Shop</h4>
+<nav class="flex flex-col gap-2">
+<a class="text-stone-600 dark:text-stone-400 hover:text-red-600 dark:hover:text-red-400 transition-all" href="#">Menu</a>
+<a class="text-stone-600 dark:text-stone-400 hover:text-red-600 dark:hover:text-red-400 transition-all" href="#">Whole Beans</a>
+<a class="text-stone-600 dark:text-stone-400 hover:text-red-600 dark:hover:text-red-400 transition-all" href="#">Merchandise</a>
+</nav>
+</div>
+<div class="space-y-4">
+<h4 class="font-bold text-stone-900 dark:text-white">Company</h4>
+<nav class="flex flex-col gap-2">
+<a class="text-stone-600 dark:text-stone-400 hover:text-red-600 dark:hover:text-red-400 transition-all" href="#">Careers</a>
+<a class="text-stone-600 dark:text-stone-400 hover:text-red-600 dark:hover:text-red-400 transition-all" href="#">Contact Us</a>
+<a class="text-stone-600 dark:text-stone-400 hover:text-red-600 dark:hover:text-red-400 transition-all" href="#">Privacy Policy</a>
+</nav>
+</div>
+<div class="space-y-4">
+<h4 class="font-bold text-stone-900 dark:text-white">Social</h4>
+<nav class="flex flex-col gap-2">
+<a class="text-stone-600 dark:text-stone-400 hover:text-red-600 dark:hover:text-red-400 transition-all" href="#">Instagram</a>
+<a class="text-stone-600 dark:text-stone-400 hover:text-red-600 dark:hover:text-red-400 transition-all" href="#">Facebook</a>
+<a class="text-stone-600 dark:text-stone-400 hover:text-red-600 dark:hover:text-red-400 transition-all" href="#">Twitter</a>
+</nav>
+</div>
+</div>
+<div class="max-w-7xl mx-auto px-8 pb-8 text-center md:text-left">
+<p class="text-stone-400 text-[10px] border-t border-stone-200 dark:border-stone-800 pt-8">
+                © 2024 Zeger Coffee. All rights reserved.
+            </p>
+</div>
+</footer>
+</body></html>

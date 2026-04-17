@@ -1,57 +1,18 @@
-@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-:root {
-  --zeger-red: #E60012;
-  --zeger-red-dark: #cc0010;
-  --zeger-dark: #111111;
-  --zeger-gray: #666666;
-  --zeger-bg: #FFFFFF;
-  --zeger-light: #f5f5f5;
-  --max-width: 1200px;
-  
-  --font-main: 'Outfit', sans-serif;
-}
+@layer utilities {
+  .glass-nav {
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+  }
 
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
+  .editorial-shadow {
+    box-shadow: 0 8px 24px rgba(27, 28, 26, 0.08);
+  }
 
-body {
-  font-family: var(--font-main);
-  background-color: var(--zeger-bg);
-  color: var(--zeger-dark);
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  overflow-x: hidden;
-}
-
-a {
-  text-decoration: none;
-  color: inherit;
-}
-
-ul {
-  list-style: none;
-}
-
-button {
-  font-family: var(--font-main);
-  cursor: pointer;
-  border: none;
-  background: none;
-}
-
-.container {
-  max-width: var(--max-width);
-  margin: 0 auto;
-  padding: 0 2rem;
-  width: 100%;
-}
-
-@media (max-width: 768px) {
-  .container {
-    padding: 0 1.5rem;
+  .primary-gradient {
+    background: linear-gradient(135deg, #ba0015 0%, #e21f26 100%);
   }
 }

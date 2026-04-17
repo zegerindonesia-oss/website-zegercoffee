@@ -1,10 +1,8 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
-import './Hero.css';
 
 const frameCount = 241;
 
-// Helper to get image path (now served from /sequence directly)
 const currentFrame = (index) => (
     `/sequence/ezgif-frame-${index.toString().padStart(3, '0')}.jpg`
 );
@@ -36,15 +34,13 @@ const Hero = () => {
         const context = canvas.getContext('2d');
         const img = images[index];
 
-        // Scale image (contain or cover depending on aspect ratio, Apple mostly covers)
         const hRatio = canvas.width / img.width;
         const vRatio = canvas.height / img.height;
         const ratio = Math.max(hRatio, vRatio);
         const centerShift_x = (canvas.width - img.width * ratio) / 2;
         const centerShift_y = (canvas.height - img.height * ratio) / 2;
 
-        // Clean White Background clear
-        context.fillStyle = '#FFFFFF';
+        context.fillStyle = '#fbf9f6';
         context.fillRect(0, 0, canvas.width, canvas.height);
 
         context.drawImage(img, 0, 0, img.width, img.height,
@@ -88,36 +84,50 @@ const Hero = () => {
         return () => window.removeEventListener('resize', resizeCanvas);
     }, [images]);
 
-    // Initial text fade out
     const titleOpacity = useTransform(scrollYProgress, [0, 0.1], [1, 0]);
     const titleY = useTransform(scrollYProgress, [0, 0.1], [0, -50]);
 
-    // Second text string reveal
     const section2Opacity = useTransform(scrollYProgress, [0.4, 0.5, 0.6], [0, 1, 0]);
     const section2Y = useTransform(scrollYProgress, [0.4, 0.5, 0.6], [50, 0, -50]);
 
     return (
-        <div className="hero-scroll-container" ref={containerRef}>
-            <div className="hero-sticky">
-                {/* Draw the sequence on pure white background */}
-                <canvas ref={canvasRef} className="hero-canvas" />
+        <div ref={containerRef} style={{ position: 'relative', height: '400vh', width: '100%', backgroundColor: '#fbf9f6' }}>
+            <div style={{ position: 'sticky', top: 0, height: '100vh', width: '100%', overflow: 'hidden', backgroundColor: '#fbf9f6' }}>
+                <canvas ref={canvasRef} style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', objectFit: 'cover', zIndex: 1 }} />
 
-                {/* Texts floating above canvas */}
-                <div className="container hero-content-wrapper">
+                <div style={{ position: 'relative', height: '100%', zIndex: 10, display: 'flex', alignItems: 'center', pointerEvents: 'none' }} className="max-w-7xl mx-auto px-8">
                     <motion.div
-                        className="hero-main-title"
-                        style={{ opacity: titleOpacity, y: titleY }}
+                        style={{
+                            position: 'absolute',
+                            top: '50%',
+                            transform: 'translateY(-50%)',
+                            maxWidth: '600px',
+                            opacity: titleOpacity,
+                            y: titleY,
+                        }}
                     >
-                        <h1>Perfection in <br /><span className="text-red">Every Drop.</span></h1>
-                        <p>Scroll to experience the craft of Zeger Coffee.</p>
+                        <h1 className="text-[clamp(3.5rem,6vw,5.5rem)] font-extrabold leading-[1.05] tracking-tight text-on-surface mb-5">
+                            Perfection in <br /><span className="text-primary">Every Drop.</span>
+                        </h1>
+                        <p className="text-xl text-on-surface-variant font-medium">Scroll to experience the craft of Zeger Coffee.</p>
                     </motion.div>
 
                     <motion.div
-                        className="hero-secondary-title"
-                        style={{ opacity: section2Opacity, y: section2Y }}
+                        style={{
+                            position: 'absolute',
+                            top: '50%',
+                            right: '2rem',
+                            transform: 'translateY(-50%)',
+                            maxWidth: '400px',
+                            textAlign: 'right',
+                            opacity: section2Opacity,
+                            y: section2Y,
+                        }}
                     >
-                        <h2>Freshly Roasted</h2>
-                        <p>From the farm entirely to your premium cup. We preserve the authentic flavors.</p>
+                        <h2 className="text-[clamp(2.5rem,4vw,4rem)] font-extrabold leading-[1.1] tracking-tight text-primary mb-4">
+                            Freshly Roasted
+                        </h2>
+                        <p className="text-lg text-on-surface-variant leading-relaxed">From the farm entirely to your premium cup. We preserve the authentic flavors.</p>
                     </motion.div>
                 </div>
             </div>

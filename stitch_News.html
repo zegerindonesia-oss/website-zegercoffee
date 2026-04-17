@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Zeger News | Coffee Culture &amp; Editorial</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-container-high": "#eae8e5",
+                        "on-tertiary-container": "#fdf9ff",
+                        "surface-container-low": "#f5f3f0",
+                        "primary-fixed-dim": "#ffb4ac",
+                        "on-error": "#ffffff",
+                        "error-container": "#ffdad6",
+                        "secondary-container": "#ff605a",
+                        "outline-variant": "#e7bdb8",
+                        "secondary": "#b22929",
+                        "secondary-fixed-dim": "#ffb3ad",
+                        "inverse-on-surface": "#f2f0ed",
+                        "surface-container": "#efeeeb",
+                        "surface-tint": "#c00016",
+                        "surface-container-lowest": "#ffffff",
+                        "inverse-primary": "#ffb4ac",
+                        "on-tertiary-fixed-variant": "#47464b",
+                        "on-primary-fixed-variant": "#93000e",
+                        "surface-container-highest": "#e4e2df",
+                        "on-primary-container": "#fffaf9",
+                        "primary-container": "#e21f26",
+                        "on-secondary-container": "#650008",
+                        "error": "#ba1a1a",
+                        "surface-dim": "#dbdad7",
+                        "secondary-fixed": "#ffdad6",
+                        "on-surface-variant": "#5d3f3c",
+                        "surface-variant": "#e4e2df",
+                        "on-tertiary-fixed": "#1c1b20",
+                        "on-secondary": "#ffffff",
+                        "on-primary": "#ffffff",
+                        "on-secondary-fixed-variant": "#900b15",
+                        "tertiary-fixed": "#e5e1e8",
+                        "primary-fixed": "#ffdad6",
+                        "outline": "#926f6b",
+                        "on-surface": "#1b1c1a",
+                        "on-error-container": "#93000a",
+                        "tertiary-fixed-dim": "#c9c5cc",
+                        "surface-bright": "#fbf9f6",
+                        "on-secondary-fixed": "#410003",
+                        "inverse-surface": "#30312f",
+                        "on-primary-fixed": "#410003",
+                        "on-background": "#1b1c1a",
+                        "background": "#fbf9f6",
+                        "on-tertiary": "#ffffff",
+                        "primary": "#ba0015",
+                        "tertiary-container": "#757278",
+                        "tertiary": "#5c5a60",
+                        "surface": "#fbf9f6"
+                    },
+                    "fontFamily": {
+                        "headline": ["Plus Jakarta Sans"],
+                        "body": ["Plus Jakarta Sans"],
+                        "label": ["Plus Jakarta Sans"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        body { font-family: 'Plus Jakarta Sans', sans-serif; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .signature-gradient {
+            background: linear-gradient(135deg, #ba0015 0%, #e21f26 100%);
+        }
+        .editorial-shadow {
+            box-shadow: 0 8px 24px rgba(27, 28, 26, 0.08);
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface flex flex-col min-h-screen">
+<!-- TopAppBar -->
+<nav class="fixed top-0 w-full z-50 bg-[#fbf9f6]/85 dark:bg-[#1b1c1a]/85 backdrop-blur-xl transition-all duration-300">
+<div class="flex justify-between items-center px-8 py-6 max-w-7xl mx-auto">
+<div class="text-2xl font-black tracking-tighter text-[#1b1c1a] dark:text-[#fbf9f6] font-['Plus_Jakarta_Sans']">
+                Zeger Coffee
+            </div>
+<div class="hidden md:flex gap-8 items-center">
+<a class="text-[#1b1c1a] dark:text-[#fbf9f6] opacity-70 hover:opacity-100 transition-opacity duration-300 font-['Plus_Jakarta_Sans'] tracking-tight" href="#">Shop</a>
+<a class="text-[#e21f26] font-bold border-b-2 border-[#e21f26] pb-1 font-['Plus_Jakarta_Sans'] tracking-tight" href="#">Journal</a>
+<a class="text-[#1b1c1a] dark:text-[#fbf9f6] opacity-70 hover:opacity-100 transition-opacity duration-300 font-['Plus_Jakarta_Sans'] tracking-tight" href="#">Collaborations</a>
+<a class="text-[#1b1c1a] dark:text-[#fbf9f6] opacity-70 hover:opacity-100 transition-opacity duration-300 font-['Plus_Jakarta_Sans'] tracking-tight" href="#">Locations</a>
+</div>
+<div class="flex items-center gap-6">
+<button class="scale-95 active:scale-90 transition-transform">
+<span class="material-symbols-outlined text-[#1b1c1a] dark:text-[#fbf9f6]">search</span>
+</button>
+<button class="scale-95 active:scale-90 transition-transform">
+<span class="material-symbols-outlined text-[#1b1c1a] dark:text-[#fbf9f6]">shopping_bag</span>
+</button>
+</div>
+</div>
+</nav>
+<main class="pt-32 pb-20 px-8 max-w-7xl mx-auto w-full flex-grow">
+<!-- Editorial Header Section -->
+<header class="mb-16">
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-6">
+<div class="max-w-2xl">
+<span class="text-primary font-bold tracking-[0.1em] text-xs uppercase mb-4 block">The Journal</span>
+<h1 class="text-6xl md:text-8xl font-extrabold tracking-tighter leading-none text-on-surface">
+                        Zeger News
+                    </h1>
+</div>
+<div class="hidden md:block">
+<p class="text-on-surface-variant max-w-xs text-sm leading-relaxed">
+                        Curated stories from the intersection of specialty coffee, sustainable farming, and urban community culture.
+                    </p>
+</div>
+</div>
+</header>
+<!-- Main Content Bento Grid -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-8">
+<!-- Featured Hero Article (Reference Image 4 main feature) -->
+<article class="md:col-span-8 group relative overflow-hidden rounded-3xl bg-surface-container-low transition-all duration-500 hover:editorial-shadow h-[600px]">
+<div class="absolute inset-0">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="Cinematic wide shot of a master barista pouring a pour-over coffee in a high-end minimalist cafe with warm morning sunlight" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC3KpeM2s6-AaEGfCYuDsmvI_7L-PikHWIa5TD_LO_jbldZJ4uSChuxRAI-k7U-awIFmnwKh-k7nud5r-PKAa_5P2LtueeC6xAiGOWV1ehO3HzESkmJOVzYUmjGIrEMPu947fTLqcmYa9GwrwdV58SrKaKh7fDNfl1qQTCBqJvyujp4cGz__mp3GamzKBtyFmusWhMwmJMwl_lU2sBaJZTcHWqbF2S130_3X6LE7cSc08HGjt19hctIS1OFIS82VJFpTuOzVTcz7k8"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
+</div>
+<div class="absolute bottom-0 p-10 w-full">
+<div class="flex gap-4 mb-4">
+<span class="bg-primary px-3 py-1 rounded-full text-white text-[10px] font-bold uppercase tracking-widest">Sustainability</span>
+<span class="text-white/60 text-[10px] font-bold uppercase tracking-widest">March 24, 2024</span>
+</div>
+<h2 class="text-4xl md:text-5xl font-extrabold text-white tracking-tighter mb-6 leading-tight max-w-xl">
+                        The Future of Ethiopian Yirgacheffe: Climate Adaptation in the Highlands
+                    </h2>
+<a class="inline-flex items-center gap-2 text-white font-bold group/link" href="#">
+                        Read Feature 
+                        <span class="material-symbols-outlined transition-transform group-hover/link:translate-x-1">arrow_right_alt</span>
+</a>
+</div>
+</article>
+<!-- Sidebar Column -->
+<div class="md:col-span-4 flex flex-col gap-8">
+<!-- Trending Card 1 -->
+<article class="bg-surface-container-low rounded-3xl p-8 transition-all duration-300 hover:bg-surface-container-high border-l-4 border-primary">
+<span class="text-primary font-bold text-[10px] uppercase tracking-widest block mb-2">Technique</span>
+<h3 class="text-xl font-bold tracking-tight mb-4">The Science of Milk Temperature in Latte Art</h3>
+<p class="text-on-surface-variant text-sm line-clamp-2 mb-4">Why 65°C is the sweet spot for sweetness and texture in your morning flat white.</p>
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full overflow-hidden bg-surface-variant">
+<img class="w-full h-full object-cover" data-alt="Portrait of a female professional barista in a leather apron" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBDzWJX6yeq9qMHD9srXEKuxwMUXK7V886rSOoOfaR4dA-fJ7i3uRQue1kN9ZnRrouaMAVSZLouJAbYp-akFC9w34t4YsuIknr2z0kGCJCuefRDVmEs4wrfIIemRjFuOL8BovyeLXIn8uT7Xor-joZHa2AeUaErNx5cYv3IhQBEkL4_FS6vahaM3thAZqKjir1hFkskizQUjUNEJw2lSMAl33SZrUZyQrWJQJSQnOHJ6tnh-z3yQF0xWZKZBxmWt3KfAm8yNAywwR0"/>
+</div>
+<span class="text-[11px] font-semibold text-on-surface opacity-60">By Elena Rossi</span>
+</div>
+</article>
+<!-- Trending Card 2 (Image Focus) -->
+<article class="bg-surface-container-low rounded-3xl overflow-hidden group">
+<div class="h-48 overflow-hidden">
+<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" data-alt="Industrial modern interior of a coffee roastery with large silver roasting machines and bags of green beans" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDcpRVyQlJj25zaBQbHS6w0JJ0bad-7RpkmIJSiaXIrgbC3iTf6uuJDLevKsVlm0Mg4PzoDLDzmF2lFss3e9XYUQJdXN3gAb4voV4bIT9v9sbKzAbMy1SKCXeHwMmAFfgURcEHAw4bhxhsoDXLrSsQsQSe2Tve2G8cgEXhn4EtweDSt6n8s0HG6DndTdgn-WS_nWsH3MkR8sJKPfz3RMv6SiiM_rwIp5a4kk2Tep9tvNSQe4KXcMC2Zhapas6uDvf2A9y-W8fQLTCQ"/>
+</div>
+<div class="p-8">
+<span class="text-primary font-bold text-[10px] uppercase tracking-widest block mb-2">Community</span>
+<h3 class="text-xl font-bold tracking-tight mb-2">Opening Soon: The Soho Roastery</h3>
+<p class="text-on-surface-variant text-sm mb-4">Our biggest editorial space yet arrives this Autumn in the heart of London.</p>
+<a class="text-primary text-xs font-bold uppercase tracking-widest hover:underline decoration-2 underline-offset-4" href="#">Details</a>
+</div>
+</article>
+</div>
+<!-- Horizontal Section (Editorial Layout Reference) -->
+<section class="md:col-span-12 mt-8">
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<!-- Column 1 -->
+<div class="flex flex-col gap-6">
+<div class="aspect-[4/5] rounded-2xl overflow-hidden relative group">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Close up of dark roasted coffee beans being held in cupped hands" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAZyV6mZvuwSJfZhUvt58PNRqCBIg2M8rX0p_W6TXsmPpG56_-DKZf_SDkTHfZ7VJU023hq719UQu-m2xfwCJYeQE2GPY9chiyYVoGmAMhfWDsYAd4QK0viflS6jiLj27IwoApEzulweD4JCz37YXwCUPiwAN5ykdYEixDsGSrBiufuuimY930ohuS7sPzvQrgfXWqTiznEiDYEkvoP7_GHAIdyLYwxyV4in8xF2jXMZKMkoB8atw3iWnvc-mr16A-C-Eeq_LYU5SU"/>
+<div class="absolute top-4 left-4 signature-gradient text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase">Sourcing</div>
+</div>
+<h4 class="text-2xl font-bold tracking-tight">Direct Trade: More Than a Label</h4>
+<p class="text-on-surface-variant text-sm leading-relaxed">Understanding how our partnership with Finca El Paraiso is changing the landscape of local education.</p>
+</div>
+<!-- Column 2 (Glassmorphism Overlay) -->
+<div class="flex flex-col gap-6">
+<div class="aspect-[4/5] rounded-2xl overflow-hidden relative group bg-surface-container-highest flex items-center justify-center p-8">
+<div class="text-center">
+<span class="material-symbols-outlined text-primary text-6xl mb-4">menu_book</span>
+<h4 class="text-xl font-black italic tracking-tighter uppercase mb-2">The Zeger<br/>Quarterly</h4>
+<p class="text-[10px] uppercase tracking-widest font-bold opacity-60">Spring Issue 04 Available Now</p>
+</div>
+<div class="absolute inset-0 bg-primary/10 backdrop-blur-[2px] opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+<button class="signature-gradient text-white px-6 py-3 rounded-xl font-bold text-xs uppercase tracking-widest editorial-shadow">Order Print</button>
+</div>
+</div>
+<h4 class="text-2xl font-bold tracking-tight">Curating the Perfect Morning Ritual</h4>
+<p class="text-on-surface-variant text-sm leading-relaxed">An exploration of mindfulness and the tactile pleasure of grinding beans at dawn.</p>
+</div>
+<!-- Column 3 -->
+<div class="flex flex-col gap-6">
+<div class="aspect-[4/5] rounded-2xl overflow-hidden relative group">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Minimalist overhead shot of a flat white coffee with perfect latte art heart on a white table" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCBZhal680yDpTaiH_1U_YRPzBcV4Z9aLCC-XiNPz_zFbNjVsRQAZrQ-MllJhDF1ZzKebam1_FTh4zHq6enDCOQzcheb13064TehG9jSfLvIcCdATbu5kKJR63SqOtTBgr_XUZlyXx9DU2G7xFv1Jv9ZGaX34uZitPht9QVarNyFW9ijW_0ArSXTrz0raZBBGBVcLPAZXWGuq0WyDhIUWFXsiDo7cBXdfMqdbIpL4_nZJsGsFo0YVTz6BOwcHYLqS193oe2ok4jjHY"/>
+<div class="absolute top-4 right-4 bg-surface/90 backdrop-blur-md text-on-surface text-[10px] font-bold px-3 py-1 rounded-full uppercase">Lifestyle</div>
+</div>
+<h4 class="text-2xl font-bold tracking-tight">Coffee and Ceramics: A Dialogue</h4>
+<p class="text-on-surface-variant text-sm leading-relaxed">Why the vessel matters as much as the brew. Interviewing master potter Kenji Sato.</p>
+</div>
+</div>
+</section>
+</div>
+<!-- Newsletter Subscription (Glassmorphic) -->
+<section class="mt-20 signature-gradient rounded-[3rem] p-12 md:p-20 relative overflow-hidden">
+<div class="absolute -top-24 -right-24 w-96 h-96 bg-white/10 rounded-full blur-3xl"></div>
+<div class="relative z-10 max-w-xl">
+<h2 class="text-4xl md:text-5xl font-black text-white tracking-tighter mb-6">Join the Editorial Inner Circle.</h2>
+<p class="text-white/80 mb-10 text-lg">Receive our bi-weekly dispatch on global coffee trends, farm reports, and early access to limited collaborations.</p>
+<form class="flex flex-col md:flex-row gap-4">
+<input class="bg-white/10 border-b-2 border-white/30 text-white placeholder:text-white/50 px-0 py-4 focus:outline-none focus:border-white transition-colors flex-grow uppercase text-xs tracking-widest font-bold bg-transparent border-t-0 border-x-0 rounded-none" placeholder="YOUR EMAIL ADDRESS" type="email"/>
+<button class="bg-white text-primary px-10 py-4 rounded-xl font-black text-xs uppercase tracking-widest hover:bg-surface-container-low transition-colors">Subscribe</button>
+</form>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full py-16 px-8 mt-auto bg-[#f5f3f0] dark:bg-[#1b1c1a]">
+<div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
+<div class="text-lg font-bold text-[#1b1c1a] dark:text-[#fbf9f6] font-['Plus_Jakarta_Sans']">
+                ZEGER COFFEE
+            </div>
+<div class="flex flex-wrap justify-center gap-8">
+<a class="text-[#1b1c1a]/60 dark:text-[#fbf9f6]/60 hover:text-[#e21f26] transition-colors font-['Plus_Jakarta_Sans'] text-[0.75rem] uppercase tracking-[0.05em]" href="#">Editorial Policy</a>
+<a class="text-[#1b1c1a]/60 dark:text-[#fbf9f6]/60 hover:text-[#e21f26] transition-colors font-['Plus_Jakarta_Sans'] text-[0.75rem] uppercase tracking-[0.05em]" href="#">Privacy</a>
+<a class="text-[#1b1c1a]/60 dark:text-[#fbf9f6]/60 hover:text-[#e21f26] transition-colors font-['Plus_Jakarta_Sans'] text-[0.75rem] uppercase tracking-[0.05em]" href="#">Sustainability</a>
+<a class="text-[#1b1c1a]/60 dark:text-[#fbf9f6]/60 hover:text-[#e21f26] transition-colors font-['Plus_Jakarta_Sans'] text-[0.75rem] uppercase tracking-[0.05em]" href="#">Terms</a>
+</div>
+<div class="text-[#1b1c1a]/40 dark:text-[#fbf9f6]/40 font-['Plus_Jakarta_Sans'] text-[0.75rem] uppercase tracking-[0.05em]">
+                © 2024 ZEGER COFFEE EDITORIAL. ALL RIGHTS RESERVED.
+            </div>
+</div>
+</footer>
+</body></html>

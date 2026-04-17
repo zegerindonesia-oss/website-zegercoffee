@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
 import Navbar from './components/Navbar/Navbar';
 
 // Pages
@@ -14,42 +14,61 @@ import DownloadApp from './pages/DownloadApp/DownloadApp';
 function App() {
   return (
     <BrowserRouter>
-      <div className="app-container">
+      <div className="bg-background text-on-surface font-body selection:bg-primary selection:text-on-primary min-h-screen flex flex-col">
         <Navbar />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/about" element={<Home />} />
-          <Route path="/menu" element={<Menu />} />
-          <Route path="/store" element={<Store />} />
-          <Route path="/collaboration" element={<Collaboration />} />
-          <Route path="/news" element={<News />} />
-          <Route path="/contact-us" element={<ContactUs />} />
-          <Route path="/download-app" element={<DownloadApp />} />
-        </Routes>
-        
-        <footer style={{ backgroundColor: 'var(--zeger-dark)', color: 'white', padding: '80px 0 40px' }}>
-          <div className="container" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '40px' }}>
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="32" height="32" fill="var(--zeger-red)">
-                <path d="M17.067 5.748c-3.153-2.074-7.53-.448-9.4 3.73-1.603 3.585-1.4 8.784 2.87 10.99 3.016 1.56 7.42-.041 9.4-3.73 1.986-3.69 1.405-8.15-2.87-10.99zm-4.72 10.85c-1.353.473-2.483-1.12-1.745-2.146 1.4-1.927 3.255-3.627 3.513-5.27.098-.621.848-1.077 1.433-.674.521.36.49 1.056.241 1.637-.624 1.455-2.003 3.476-2.613 5.344-.192.585-.592.937-.829 1.109z" />
-              </svg>
-              <span style={{ fontSize: '1.5rem', fontWeight: 700, letterSpacing: '-0.5px' }}>Zeger <span style={{ fontWeight: 400 }}></span></span>
+
+        <div className="flex-grow">
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/about" element={<Home />} />
+            <Route path="/menu" element={<Menu />} />
+            <Route path="/store" element={<Store />} />
+            <Route path="/collaboration" element={<Collaboration />} />
+            <Route path="/news" element={<News />} />
+            <Route path="/contact-us" element={<ContactUs />} />
+            <Route path="/download-app" element={<DownloadApp />} />
+          </Routes>
+        </div>
+
+        {/* Footer */}
+        <footer className="bg-surface-container-high transition-colors duration-300">
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-8 px-8 py-12 max-w-7xl mx-auto w-full font-['Plus_Jakarta_Sans'] text-sm uppercase tracking-widest">
+            <div className="space-y-4">
+              <div className="text-xl font-black italic text-primary">Zeger Coffee</div>
+              <p className="normal-case tracking-normal text-on-surface-variant">Premium roasting and crafted experiences delivered to your neighborhood.</p>
+              <div className="flex gap-4">
+                <span className="material-symbols-outlined text-primary">public</span>
+                <span className="material-symbols-outlined text-primary">person</span>
+              </div>
             </div>
-
-            <ul style={{ display: 'flex', gap: '32px', marginBottom: '60px', flexWrap: 'wrap', justifyContent: 'center' }}>
-              {['About', 'Menu', 'Store', 'Investors', 'GCG', 'Collaboration', 'News', 'Career', 'Contact Us'].map(item => (
-                <li key={item}>
-                  <a href={`/${item.toLowerCase().replace(' ', '-')}`} style={{ color: 'rgba(255,255,255,0.7)', transition: 'color 0.2s', fontWeight: 500, textDecoration: 'none' }} onMouseOver={(e) => e.target.style.color = 'white'} onMouseOut={(e) => e.target.style.color = 'rgba(255,255,255,0.7)'}>
-                    {item}
-                  </a>
-                </li>
-              ))}
-            </ul>
-
-            <div style={{ width: '100%', height: '1px', backgroundColor: 'rgba(255,255,255,0.1)', marginBottom: '40px' }}></div>
-
-            <p style={{ color: 'rgba(255,255,255,0.5)', fontSize: '0.9rem' }}>
-              &copy; {new Date().getFullYear()} Zeger Coffee. All rights reserved.
+            <div className="space-y-4">
+              <h4 className="font-bold text-on-surface">Shop</h4>
+              <nav className="flex flex-col gap-2">
+                <Link className="text-on-surface-variant hover:text-primary transition-all" to="/menu">Menu</Link>
+                <Link className="text-on-surface-variant hover:text-primary transition-all" to="/store">Store</Link>
+                <Link className="text-on-surface-variant hover:text-primary transition-all" to="/download-app">App</Link>
+              </nav>
+            </div>
+            <div className="space-y-4">
+              <h4 className="font-bold text-on-surface">Company</h4>
+              <nav className="flex flex-col gap-2">
+                <Link className="text-on-surface-variant hover:text-primary transition-all" to="/collaboration">Collaboration</Link>
+                <Link className="text-on-surface-variant hover:text-primary transition-all" to="/contact-us">Contact Us</Link>
+                <Link className="text-on-surface-variant hover:text-primary transition-all" to="/news">News</Link>
+              </nav>
+            </div>
+            <div className="space-y-4">
+              <h4 className="font-bold text-on-surface">Social</h4>
+              <nav className="flex flex-col gap-2">
+                <a className="text-on-surface-variant hover:text-primary transition-all" href="#">Instagram</a>
+                <a className="text-on-surface-variant hover:text-primary transition-all" href="#">Facebook</a>
+                <a className="text-on-surface-variant hover:text-primary transition-all" href="#">Twitter</a>
+              </nav>
+            </div>
+          </div>
+          <div className="max-w-7xl mx-auto px-8 pb-8 text-center md:text-left">
+            <p className="text-outline text-[10px] border-t border-outline-variant/30 pt-8 uppercase tracking-widest">
+              © {new Date().getFullYear()} Zeger Coffee. All rights reserved.
             </p>
           </div>
         </footer>

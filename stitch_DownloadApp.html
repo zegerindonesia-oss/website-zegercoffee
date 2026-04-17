@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Download App | Zeger Coffee</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-primary-container": "#fffaf9",
+                    "on-secondary-fixed": "#410003",
+                    "tertiary-fixed-dim": "#c9c5cc",
+                    "secondary-container": "#ff605a",
+                    "on-tertiary-container": "#fdf9ff",
+                    "secondary-fixed": "#ffdad6",
+                    "on-secondary": "#ffffff",
+                    "primary": "#ba0015",
+                    "inverse-primary": "#ffb4ac",
+                    "on-primary": "#ffffff",
+                    "tertiary-container": "#757278",
+                    "on-tertiary-fixed": "#1c1b20",
+                    "on-surface-variant": "#5d3f3c",
+                    "primary-container": "#e21f26",
+                    "inverse-on-surface": "#f2f0ed",
+                    "on-tertiary": "#ffffff",
+                    "tertiary": "#5c5a60",
+                    "on-tertiary-fixed-variant": "#47464b",
+                    "error-container": "#ffdad6",
+                    "primary-fixed": "#ffdad6",
+                    "on-surface": "#1b1c1a",
+                    "background": "#fbf9f6",
+                    "surface-container": "#efeeeb",
+                    "secondary-fixed-dim": "#ffb3ad",
+                    "surface": "#fbf9f6",
+                    "on-error-container": "#93000a",
+                    "on-background": "#1b1c1a",
+                    "outline": "#926f6b",
+                    "surface-container-lowest": "#ffffff",
+                    "surface-container-low": "#f5f3f0",
+                    "on-secondary-fixed-variant": "#900b15",
+                    "surface-dim": "#dbdad7",
+                    "surface-tint": "#c00016",
+                    "error": "#ba1a1a",
+                    "surface-bright": "#fbf9f6",
+                    "inverse-surface": "#30312f",
+                    "on-error": "#ffffff",
+                    "tertiary-fixed": "#e5e1e8",
+                    "on-secondary-container": "#650008",
+                    "surface-container-high": "#eae8e5",
+                    "on-primary-fixed": "#410003",
+                    "primary-fixed-dim": "#ffb4ac",
+                    "on-primary-fixed-variant": "#93000e",
+                    "surface-container-highest": "#e4e2df",
+                    "secondary": "#b22929",
+                    "surface-variant": "#e4e2df",
+                    "outline-variant": "#e7bdb8"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "fontFamily": {
+                    "headline": ["Plus Jakarta Sans"],
+                    "body": ["Plus Jakarta Sans"],
+                    "label": ["Plus Jakarta Sans"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body { font-family: 'Plus Jakarta Sans', sans-serif; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .signature-gradient {
+            background: linear-gradient(135deg, #ba0015 0%, #e21f26 100%);
+        }
+        .glass-header {
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface selection:bg-primary-container selection:text-on-primary-container">
+<!-- TopAppBar -->
+<header class="bg-[#fbf9f6]/85 dark:bg-stone-900/85 backdrop-blur-md fixed top-0 w-full z-50 shadow-sm dark:shadow-none">
+<nav class="flex justify-between items-center px-8 py-4 max-w-7xl mx-auto font-['Plus_Jakarta_Sans'] tracking-tight">
+<div class="text-2xl font-bold tracking-tighter text-[#E21F26]">
+                Zeger Coffee
+            </div>
+<div class="hidden md:flex items-center gap-8">
+<a class="text-stone-600 dark:text-stone-400 hover:text-[#E21F26] transition-colors" href="#">Our Beans</a>
+<a class="text-stone-600 dark:text-stone-400 hover:text-[#E21F26] transition-colors" href="#">Locations</a>
+<a class="text-stone-600 dark:text-stone-400 hover:text-[#E21F26] transition-colors" href="#">Subscription</a>
+<a class="text-stone-600 dark:text-stone-400 hover:text-[#E21F26] transition-colors" href="#">Careers</a>
+</div>
+<div class="flex items-center gap-6">
+<button class="material-symbols-outlined text-stone-600 dark:text-stone-400 hover:opacity-80 transition-opacity">shopping_bag</button>
+<button class="bg-primary-container text-on-primary-container px-6 py-2 rounded-full font-bold hover:opacity-80 transition-opacity scale-95 duration-200 transition-transform">Order Now</button>
+</div>
+</nav>
+</header>
+<main class="pt-24">
+<!-- Hero Section -->
+<section class="relative overflow-hidden px-8 py-16 md:py-24 max-w-7xl mx-auto">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+<div class="z-10">
+<span class="text-primary font-bold tracking-widest text-xs uppercase mb-4 block">Mobile Experience</span>
+<h1 class="text-5xl md:text-7xl font-extrabold tracking-tighter text-on-surface leading-[1.1] mb-6">
+                        One click away <span class="text-primary">coffee!</span>
+</h1>
+<p class="text-lg text-on-surface-variant max-w-md mb-10 leading-relaxed">
+                        Experience the art of roasting from the palm of your hand. Exclusive rewards, seamless ordering, and the Zeger lifestyle delivered to your doorstep.
+                    </p>
+<div class="flex flex-wrap gap-4">
+<a class="hover:scale-105 transition-transform duration-300" href="#">
+<img alt="App Store" class="h-12" data-alt="Apple App Store download badge in black with white text and logo" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD4FUW3n415lVTMr2NuZlxXTkihSQraRWck0TurBkBi2f7VaSsl9_LmMp_DqdPPFshDrncvEpWCQQCw-QzfQdFk7d21spRABdhpJm5sySZ95eYJblPVjQEAQbSDxSCuXyx9y5mC_wgoCuD1wKT852hvoYJkSWz2FaUPVKYmSfET-gIBqTXyZrnADpGuUKNZBLkgvPCxdJLRto400KcmLYWhdIKtShgEquyAELR4pWwpl_CvYI3KQtDEHBBg5B2CeVUR6VyAQuKKEd8"/>
+</a>
+<a class="hover:scale-105 transition-transform duration-300" href="#">
+<img alt="Google Play" class="h-12" data-alt="Google Play Store download badge in black with colorful icon and white text" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAFSN7C9vXRWkw1QIlw3TfaWvIMCh0ullol1sKWm1cZCcOtscgMM52j1r-GN0V-EswhlTrCN95V_1oIbPp0XROGI7vauviKXkCnuNt2NLbvphbyv9STWayavxhjHneAjQzbTTjvFlHUHW5j789q5MMGHXUtL4j_dZ0sYbTT06YqCOF1iqWU_pX4pizyAm_tEyfbDIfVIvIOOJadJog5vsRLWT36_Yh_zOvGavZi1RJW224VbLX6bjhyknAOTEHtDclqZkRdsMATKSk"/>
+</a>
+</div>
+</div>
+<div class="relative flex justify-center items-center">
+<!-- Geometric Background Elements -->
+<div class="absolute w-[120%] h-[120%] bg-surface-container-low rounded-full -z-10 blur-3xl opacity-50"></div>
+<div class="relative w-full max-w-[320px] md:max-w-[400px]">
+<img alt="Zeger App Mockup" class="w-full h-auto drop-shadow-2xl relative z-20" data-alt="Premium smartphone mockup showing the Zeger Coffee app interface with vibrant crimson red accents and high-quality latte photography" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAWMEABOCy0LTYxSdWtr7yQUPHdsHpbhE_BcVb8vEPveF-sc7BKEjo6d-bwIgudVFJYi4z0mCbkjCjSRB2g8lpU32oD_g47G3awmFQDWUGz_WYiDGh8dtb5Q0i4WsDjc-bfX8tnY9WgfMPVcw7b1WwJQvGt3h84ElhXn7u0V9N_xJT7G9hVXDgyC0G3uyxrGPgAGuY8iUgNA_XCyus_3-jVhoxLrHO5eddNDTW8o_Am4Ym2HI1G7R52GOxobLU7z3gexCZhG9NaMi4"/>
+<!-- Floating Accent Card -->
+<div class="absolute -right-8 top-1/4 bg-surface-container-lowest p-4 rounded-xl shadow-xl z-30 hidden lg:block border border-outline-variant/10">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">stars</span>
+</div>
+<div>
+<p class="text-xs font-bold text-on-surface">Member Priority</p>
+<p class="text-[10px] text-on-surface-variant">Skip the queue</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- What's New Section (Bento Inspired) -->
+<section class="bg-surface-container-low py-20 px-8">
+<div class="max-w-7xl mx-auto">
+<div class="flex justify-between items-end mb-12">
+<div>
+<h2 class="text-3xl md:text-4xl font-black tracking-tight text-on-surface mb-2">What's new</h2>
+<p class="text-on-surface-variant font-medium">The latest updates to your digital brewing experience.</p>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<!-- Large Feature Card -->
+<div class="md:col-span-2 bg-surface-container-lowest rounded-[2rem] overflow-hidden relative group">
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent z-10"></div>
+<img alt="New Feature" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" data-alt="Close up of a barista pouring perfect latte art in a sunlit modern coffee shop with warm wood tones" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAZ4rwlOFvI44-vNn9S4VgSRLGiNdrMSTi7VMEpcnspMp8vqbEkEVUqsdzcVJUA3YPLl6PKARSe8uyOmIHqmrymQ6-z1QTgTEgdrfp37anLSaY4GzC2P-nbkJGlljho7sMu9rhAnXfxAr9VBv8Ox9d-npkpmtxdkS9gs_8zw6ORvYyItmBC23kj3WjGQCCvmDFpaJQG9pmAsEmPCEy_VPRFINH7gD4JvKhfn-s6JeYi3EGJoIfA0ROD9UUZMFeXAjICQb3n6m7e5hI"/>
+<div class="absolute bottom-0 left-0 p-8 z-20">
+<span class="bg-primary text-on-primary px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-widest mb-4 inline-block">New Version 2.4</span>
+<h3 class="text-3xl font-bold text-white mb-2">Brew Timer Pro</h3>
+<p class="text-white/80 max-w-sm">Master your home brew with our new haptic precision timer and bean-specific temperature guides.</p>
+</div>
+</div>
+<!-- Small Feature Cards Stacked -->
+<div class="flex flex-col gap-6">
+<div class="bg-surface-container-highest p-8 rounded-[2rem] h-full flex flex-col justify-between">
+<span class="material-symbols-outlined text-primary text-4xl" style="font-variation-settings: 'FILL' 1;">wallet</span>
+<div>
+<h3 class="text-xl font-bold text-on-surface mb-2">One-Tap Pay</h3>
+<p class="text-sm text-on-surface-variant">Apple Pay and Google Pay integration for lightning fast checkouts.</p>
+</div>
+</div>
+<div class="bg-primary-container p-8 rounded-[2rem] h-full flex flex-col justify-between text-on-primary-container">
+<span class="material-symbols-outlined text-on-primary-container text-4xl">eco</span>
+<div>
+<h3 class="text-xl font-bold mb-2">Green Points</h3>
+<p class="text-sm opacity-90">Bring your own tumbler and track your carbon footprint reduction.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Promos Section -->
+<section class="py-24 px-8 max-w-7xl mx-auto">
+<div class="text-center mb-16">
+<h2 class="text-3xl md:text-5xl font-black tracking-tighter text-on-surface mb-4">Member Exclusives</h2>
+<div class="h-1 w-20 bg-primary mx-auto"></div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+<!-- Promo 1 -->
+<div class="bg-surface-container-lowest rounded-2xl overflow-hidden group hover:shadow-2xl transition-shadow duration-500">
+<div class="relative h-64 overflow-hidden">
+<img alt="Morning Brew Promo" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-alt="Two glasses of iced coffee on a clean white table with minimalist plant shadows and bright morning sunlight" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCbU7ZU1nzwQ1YCBpevxmFafClRhz-xV3k0Ui-IuQROMstT8rI4_CmRzhykg2zp6m0SQR2hS1yAq5YmI2DwfnawlOL4dZIF8fqSWqB6VpvbOP0YIO1-ibnVx2sD-7JueztRSDhadrlNyTs37cF7q6JgSJk6CyTDIlc_2_o-jKRgD34BgRXFkfHUuxW8CbpoK8AN9PZ3je2QRKV9zOHKPWtwRV3uJsVD2nVESdTskHpud0l5snlJUkeB2E2rRfifzfiYFj-KsbtuHVo"/>
+<div class="absolute top-4 right-4 bg-primary text-on-primary px-4 py-1 rounded-full font-bold text-sm shadow-lg">
+                            BOGO
+                        </div>
+</div>
+<div class="p-6">
+<h4 class="text-xl font-bold text-on-surface mb-2">Morning Rituals</h4>
+<p class="text-on-surface-variant text-sm mb-6">Buy one, get one free on all signature lattes before 10 AM. Exclusive to app users.</p>
+<button class="text-primary font-bold text-sm uppercase tracking-widest flex items-center gap-2 group-hover:gap-4 transition-all">
+                            Claim Offer <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</button>
+</div>
+</div>
+<!-- Promo 2 -->
+<div class="bg-surface-container-lowest rounded-2xl overflow-hidden group hover:shadow-2xl transition-shadow duration-500">
+<div class="relative h-64 overflow-hidden">
+<img alt="New Roast Promo" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-alt="Premium brown coffee bean bag with elegant gold foil branding on a dark stone surface with scattered coffee beans" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDNV9qO9SUxIH7b3ezzhn55ebaFZDyOHQ2MXpTsH6-NWK2KJGEsfeU1txac2H4I1661dvy4ok7z3fLkmwnXikoZJ9rHWE2tUcs1F-eJpcCBQJA88rnPBL3Sa3PCGSYYC_6WMsrH2qjApTPBnzG9qS0Zd7tnDFz4m7Gt9rnhk2cG2fkqGa078wc72WrJyBpH6ueSomCqAa5DyOkzwZ2b5qva1tdoswm8a3BY9R64nrSv-uQZwKru4679mbnlEZP9-lhrw3432AopDv8"/>
+<div class="absolute top-4 right-4 bg-primary text-on-primary px-4 py-1 rounded-full font-bold text-sm shadow-lg">
+                            20% OFF
+                        </div>
+</div>
+<div class="p-6">
+<h4 class="text-xl font-bold text-on-surface mb-2">Artisan Bean Launch</h4>
+<p class="text-on-surface-variant text-sm mb-6">Enjoy 20% off your first bag of our seasonal Ethiopian Guji roast. Freshly roasted daily.</p>
+<button class="text-primary font-bold text-sm uppercase tracking-widest flex items-center gap-2 group-hover:gap-4 transition-all">
+                            Claim Offer <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</button>
+</div>
+</div>
+<!-- Promo 3 -->
+<div class="bg-surface-container-lowest rounded-2xl overflow-hidden group hover:shadow-2xl transition-shadow duration-500">
+<div class="relative h-64 overflow-hidden">
+<img alt="Pastry Promo" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-alt="Selection of flaky golden croissants and pastries on a wooden tray with soft overhead lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB0ZMl1CaxlvAMqH3RNK1eppC9JhewjXDa_22xQZ-gHol5ZQ47WI4Vto7NzGpXDPXFc4pCNT_48kYfPS5OPLrf_MigbFw8BCf5AhhfT9p5P0gue1Skv2I_5bGuAvoyVD-h5TKQfY7vupKj5mwdbgPsH9PMC01QhhhJVxTQNXAW9Ps9O48aUkNfB2_SNGF-ZxQ0LYFbOrV2SsqL-kaNRQ17KllvuVLMVECrcDCZ4tbjN7zXSBINKiUBjCtiFRMQCuPxAwxYUaKpb2KU"/>
+<div class="absolute top-4 right-4 bg-primary text-on-primary px-4 py-1 rounded-full font-bold text-sm shadow-lg">
+                            FREE
+                        </div>
+</div>
+<div class="p-6">
+<h4 class="text-xl font-bold text-on-surface mb-2">Sweet Pairings</h4>
+<p class="text-on-surface-variant text-sm mb-6">Get a free butter croissant with any large cold brew purchase every Friday this month.</p>
+<button class="text-primary font-bold text-sm uppercase tracking-widest flex items-center gap-2 group-hover:gap-4 transition-all">
+                            Claim Offer <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+</section>
+<!-- Newsletter CTA (Editorial Style) -->
+<section class="mb-24 px-8 max-w-7xl mx-auto">
+<div class="signature-gradient rounded-[3rem] p-12 md:p-20 text-center relative overflow-hidden">
+<div class="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full -translate-y-1/2 translate-x-1/2 blur-3xl"></div>
+<div class="relative z-10">
+<h2 class="text-3xl md:text-5xl font-black text-on-primary tracking-tighter mb-6">Join the Zeger Journal</h2>
+<p class="text-on-primary/80 max-w-xl mx-auto mb-10 text-lg">Weekly roasting insights, brewing tips, and early access to limited edition beans.</p>
+<div class="flex flex-col md:flex-row gap-4 max-w-md mx-auto">
+<input class="flex-1 bg-white/20 border-none rounded-full px-6 py-4 text-white placeholder:text-white/60 focus:ring-2 focus:ring-white/50" placeholder="your@email.com" type="email"/>
+<button class="bg-white text-primary font-black px-8 py-4 rounded-full hover:bg-opacity-90 transition-all uppercase tracking-widest text-sm">Subscribe</button>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-[#f5f3f0] dark:bg-stone-950 w-full py-12">
+<div class="flex flex-col md:flex-row justify-between items-center px-12 max-w-7xl mx-auto gap-8">
+<div class="text-lg font-black text-stone-900 dark:text-stone-100 uppercase tracking-tighter">
+                ZEGER COFFEE EDITORIAL
+            </div>
+<div class="flex flex-wrap justify-center gap-8 font-['Plus_Jakarta_Sans'] text-sm uppercase tracking-widest">
+<a class="text-stone-500 dark:text-stone-500 hover:text-[#E21F26] transition-colors" href="#">Privacy Policy</a>
+<a class="text-stone-500 dark:text-stone-500 hover:text-[#E21F26] transition-colors" href="#">Terms of Service</a>
+<a class="text-stone-500 dark:text-stone-500 hover:text-[#E21F26] transition-colors" href="#">Accessibility</a>
+<a class="text-stone-500 dark:text-stone-500 hover:text-[#E21F26] transition-colors" href="#">Contact Us</a>
+</div>
+<div class="text-stone-500 dark:text-stone-500 font-['Plus_Jakarta_Sans'] text-xs tracking-widest">
+                © 2024 ZEGER COFFEE EDITORIAL. ALL RIGHTS RESERVED.
+            </div>
+</div>
+</footer>
+</body></html>
