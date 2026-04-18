@@ -2,6 +2,14 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+
+  html,
+  body {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+  }
+}
+
 @layer utilities {
   .glass-nav {
     backdrop-filter: blur(20px);
