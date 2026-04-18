@@ -14,22 +14,26 @@ const Navbar = () => {
     ];
 
     return (
-        <header className="bg-surface/85 glass-nav docked full-width top-0 sticky z-50 transition-colors duration-300">
-            <nav className="flex justify-between items-center px-8 py-4 max-w-7xl mx-auto w-full font-['Plus_Jakarta_Sans'] tracking-tight">
-                <Link to="/" className="text-2xl font-black italic text-primary" style={{ textDecoration: 'none' }}>
-                    Zeger Coffee
+        <header className="fixed top-6 left-1/2 -translate-x-1/2 w-[calc(100%-48px)] max-w-7xl z-50 transition-all duration-500">
+            <nav className="glass-nav editorial-shadow rounded-full flex justify-between items-center px-6 py-2.5 w-full font-['Plus_Jakarta_Sans']">
+                <Link to="/" className="flex items-center gap-3 decoration-none group">
+                    <div className="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform">
+                        <img src="/favicon.png" alt="Zeger Logo" className="w-6 h-6 object-contain" />
+                    </div>
+                    <span className="text-xl font-extrabold italic text-primary">ZEGER</span>
                 </Link>
 
-                <div className="hidden md:flex items-center gap-8">
+                <div className="hidden md:flex items-center bg-black/5 rounded-full px-2 py-1 gap-1">
                     {menuItems.map((item) => {
                         const isActive = location.pathname.includes(item.path);
                         return (
                             <Link
                                 key={item.name}
                                 to={item.path}
-                                className={isActive
-                                    ? "text-primary font-bold border-b-2 border-primary hover:text-primary transition-colors duration-300"
-                                    : "text-on-surface-variant font-medium hover:text-primary transition-colors duration-300"}
+                                className={`px-5 py-2 rounded-full text-sm font-semibold transition-all duration-300 ${isActive
+                                    ? "bg-white text-primary shadow-sm"
+                                    : "text-on-surface-variant hover:text-primary"
+                                    }`}
                                 style={{ textDecoration: 'none' }}
                             >
                                 {item.name}
@@ -38,12 +42,11 @@ const Navbar = () => {
                     })}
                 </div>
 
-                <div className="flex items-center gap-6">
-                    <div className="hidden lg:flex items-center bg-surface-container-low px-4 py-2 rounded-full">
-                        <span className="material-symbols-outlined text-sm text-on-surface-variant mr-2">search</span>
-                        <input className="bg-transparent border-none focus:ring-0 outline-none text-sm w-32 placeholder:text-outline" placeholder="Find your blend..." type="text" />
-                    </div>
-                    <button className="primary-gradient text-on-primary px-6 py-2.5 rounded-full font-bold text-sm scale-95 duration-200 active:opacity-80">
+                <div className="flex items-center gap-2">
+                    <button className="hidden lg:flex items-center justify-center w-10 h-10 rounded-full hover:bg-black/5 text-on-surface-variant transition-colors">
+                        <span className="material-symbols-outlined text-[20px]">search</span>
+                    </button>
+                    <button className="primary-gradient text-on-primary px-7 py-2.5 rounded-full font-bold text-sm shadow-lg shadow-primary/20 hover:scale-105 active:scale-95 transition-all duration-300">
                         Order Now
                     </button>
                 </div>
