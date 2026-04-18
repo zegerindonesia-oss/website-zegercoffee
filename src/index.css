@@ -25,4 +25,17 @@
   .primary-gradient {
     background: linear-gradient(135deg, #ba0015 0%, #e21f26 100%);
   }
+
+  /* Utility for hiding scrollbars but allowing scroll */
+  .hide-scrollbar {
+    -ms-overflow-style: none;
+    /* IE and Edge */
+    scrollbar-width: none;
+    /* Firefox */
+  }
+
+  .hide-scrollbar::-webkit-scrollbar {
+    display: none;
+    /* Chrome, Safari and Opera */
+  }
 }

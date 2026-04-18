@@ -1,180 +1,222 @@
-import React, { useEffect } from 'react';
-import { motion } from 'framer-motion';
+import React, { useEffect, useState, useRef } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+
+const menuData = {
+    'Espresso Based': [
+        { name: 'Black Coffee', price: '10k', desc: 'Espresso dengan air dingin', sizes: ['S', 'L'] },
+        { name: 'Sunrise Americano', price: '12k', desc: 'Americano dengan rasa buah Tropical', sizes: ['S', 'L'] },
+        { name: 'Citrus Coffee', price: '12k', desc: 'Americano dengan rasa buah lemon', sizes: ['S', 'L'] },
+        { name: 'Zeger Latte', price: '10k', desc: 'Espresso dengan susu creamy (tanpa gula)', sizes: ['S', 'L', '1LT'] },
+        { name: 'Cloud Latte', price: '12k', desc: 'Espresso dengan susu creamy dan SKM', sizes: ['S', 'L', '1LT'] },
+        { name: 'Zeger Aren Latte', price: '15k', desc: 'Espresso dengan susu creamy & gula aren asli', sizes: ['S', 'L', '1LT'] },
+        { name: 'Mocha Latte', price: '15k', desc: 'Espresso dengan cokelat premium dan susu', sizes: ['S', 'L'] },
+        { name: 'Creamy Caramel Latte', price: '15k', desc: 'Latte dengan rasa caramel yang kaya', sizes: ['S', 'L', '1LT'] },
+        { name: 'Bailey\'s Creamy Latte', price: '15k', desc: 'Sensasi Bailey\'s non-alkohol yang creamy', sizes: ['S', 'L', '1LT'] },
+        { name: 'Butterscooth Creamy Latte', price: '15k', desc: 'Rasa mentega gurih manis yang khas', sizes: ['S', 'L', '1LT'] },
+        { name: 'Caramel Mochaccino', price: '18k', desc: 'Perpaduan caramel, cokelat, dan espresso', sizes: ['S', 'L', '1LT'] },
+        { name: 'Zepresso', price: '10k', desc: 'Double shoot Espresso Houseblend', sizes: ['S'] }
+    ],
+    'Zeger\'s Signature': [
+        { name: 'Zeger Coffee Jelly', price: '15k', desc: 'Espresso dengan susu creamy & Pearl Jelly', sizes: ['L'] },
+        { name: 'Caramel Machiato', price: '20k', desc: 'Caramel manis dengan espresso yang kuat', sizes: ['L'] },
+        { name: 'Choco Lava Ice Cream', price: '18k', desc: 'Cokelat lumer dengan es krim vanilla', sizes: ['L'] },
+        { name: 'Choco Matcha Ice Cream', price: '20k', desc: 'Perpaduan cokelat dan matcha dengan es krim', sizes: ['L'] },
+        { name: 'Taro Cheese Velvet', price: '18k', desc: 'Taro lembut dengan krim keju gurih', sizes: ['L'] }
+    ],
+    'Creampresso': [
+        { name: 'Classic Affogato', price: '13k', desc: 'Ice Cream Vanilla dengan Espresso', sizes: ['S'] },
+        { name: 'Zeger Supreme', price: '15k', desc: 'Ice Cream Vanilla dengan Espresso & Oreo', sizes: ['S'] },
+        { name: 'Vanilla Cookies Crumb', price: '14k', desc: 'Ice Cream Vanilla & Oreo', sizes: ['S'] },
+        { name: 'Choco Affogato', price: '15k', desc: 'Ice Cream Vanilla dan Chocolate', sizes: ['S'] },
+        { name: 'Matcha Affogato', price: '15k', desc: 'Ice Cream Vanilla dan Matcha', sizes: ['S'] },
+        { name: 'Sunny Mango', price: '14k', desc: 'Ice Cream Vanilla dan Jam Mango', sizes: ['S'] }
+    ],
+    'Milk Based': [
+        { name: 'Cookies & Cream', price: '12k', desc: 'Susu dengan oreo yang dihancurkan', sizes: ['S', 'L'] },
+        { name: 'Chocomalt', price: '10k', desc: 'Susu cokelat malt yang kaya rasa', sizes: ['S', 'L', '1LT'] },
+        { name: 'Matcha Creamy Latte', price: '15k', desc: 'Matcha premium dengan susu creamy', sizes: ['S', 'L', '1LT'] },
+        { name: 'Zeger Milk Tea', price: '15k', desc: 'Teh susu khas Zeger', sizes: ['L'] },
+        { name: 'Hazelnut Choco Pearl Jelly Milktea', price: '18k', desc: 'Milktea dengan hazelnut dan jelly', sizes: ['L'] },
+        { name: 'Brown Sugar Pearl Jelly Freshmilk', price: '18k', desc: 'Susu segar dengan gula aren dan jelly', sizes: ['L'] },
+        { name: 'Brown Sugar Pearl Jelly Milktea', price: '18k', desc: 'Milktea dengan gula aren dan jelly', sizes: ['L'] },
+        { name: 'Taro Milktea', price: '10k', desc: 'Taro dengan susu dan jelly premium', sizes: ['S', 'L', '1LT'] },
+        { name: 'Thai Tea', price: '8k', desc: 'Teh Thailand autentik khas Zeger', sizes: ['S', 'L', '1LT'] }
+    ],
+    'Refresher': [
+        { name: 'Java Tea', price: '7k', desc: 'Teh melati khas Jawa', sizes: ['L'] },
+        { name: 'Java Lemon Tea', price: '8k', desc: 'Paduan teh Jawa dan perasan lemon', sizes: ['S', 'L'] },
+        { name: 'Lychee Tea', price: '8k', desc: 'Teh rasa leci dengan buah leci pilihan', sizes: ['S', 'L', '1LT'] },
+        { name: 'Lemonade', price: '8k', desc: 'Sari buah lemon segar penambah semangat', sizes: ['S', 'L', '1LT'] },
+        { name: 'Tropicool Mango', price: '12k', desc: 'Minuman mangga dingin menyegarkan', sizes: ['S', 'L'] }
+    ]
+};
 
 const Menu = () => {
+    const [activeCategory, setActiveCategory] = useState('Espresso Based');
+    const scrollRef = useRef(null);
+
     useEffect(() => {
         window.scrollTo(0, 0);
     }, []);
 
+    const scroll = (direction) => {
+        const { current } = scrollRef;
+        if (current) {
+            const scrollAmount = 400;
+            current.scrollBy({
+                left: direction === 'left' ? -scrollAmount : scrollAmount,
+                behavior: 'smooth'
+            });
+        }
+    };
+
     return (
-        <main className="max-w-7xl mx-auto px-6 py-12">
-            {/* Editorial Hero Section */}
-            <section className="mb-20">
+        <main className="max-w-[1400px] mx-auto px-6 py-24 pt-32 min-h-screen">
+            <section className="mb-16">
                 <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    className="relative overflow-hidden rounded-3xl bg-surface-container-low min-h-[400px] flex items-center"
+                    initial={{ opacity: 0, scale: 0.98 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    className="relative overflow-hidden rounded-[3rem] bg-surface-container-low min-h-[450px] flex items-center editorial-shadow"
                 >
                     <div className="absolute inset-0 z-0">
-                        <img className="w-full h-full object-cover opacity-90" alt="cinematic close-up of a barista" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDbbDwR1lEULqXdDL0rmnRJl4klTfGdFnyBi6nI_DkMihhMmkoglu9klkHsAumpvOkzU7FRVNnNvsqZ0Rs4O7sJDMOhP-aVD5uFEfqyxz-zm0HXdTTpVibB1fNPmZKduNaKP9jGll6ncaMEFmbqwe-H9xOPzIMTgdCbchvACzRKzSsXjZt_4zFTSOGh9hxS4ZMEXdp5O3CGdAsCQiXlngqVjZ_ppohIO8eT82XBKQX0UPzaMBpvE7qMy1PTt272FYVjL00ye2TOFFY" />
-                        <div className="absolute inset-0 bg-gradient-to-r from-background via-background/40 to-transparent"></div>
+                        <img
+                            className="w-full h-full object-cover opacity-90 transition-transform duration-1000"
+                            alt="cinematic coffee"
+                            src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?q=80&w=2070&auto=format&fit=crop"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-r from-background via-background/60 to-transparent"></div>
                     </div>
-                    <div className="relative z-10 p-12 lg:p-20 max-w-2xl">
-                        <span className="text-primary font-bold tracking-[0.2em] text-xs uppercase mb-4 block">The Art of Roasting</span>
-                        <h1 className="text-5xl md:text-7xl font-black italic tracking-tighter text-on-surface mb-6 leading-tight">
-                            CRAFTED FOR<br /><span className="text-primary">YOUR MOMENT.</span>
+                    <div className="relative z-10 p-12 lg:p-24 max-w-3xl">
+                        <span className="text-primary font-extrabold tracking-[0.3em] text-[10px] uppercase mb-6 block">Happiness in every cup</span>
+                        <h1 className="text-6xl md:text-8xl font-black italic tracking-tighter text-on-surface mb-8 leading-[0.9]">
+                            TRUE COFFEE <br /><span className="text-primary underline decoration-4 underline-offset-8">IDENTITY.</span>
                         </h1>
-                        <p className="text-on-surface-variant text-lg mb-8 leading-relaxed max-w-md">
-                            Explore our curated selection of signature blends and seasonal creations, designed to elevate your daily ritual.
+                        <p className="text-on-surface-variant text-xl font-medium mb-10 leading-relaxed max-w-lg">
+                            Dibuat 100% dari biji kopi asli pilihan. Jelajahi menu kami dan temukan semangat baru dalam setiap tegukannya.
                         </p>
-                        <div className="flex gap-4">
-                            <button className="primary-gradient text-on-primary px-8 py-4 rounded-xl font-bold editorial-shadow hover:scale-105 transition-transform">Explore Menu</button>
-                            <button className="bg-surface-container-highest/20 backdrop-blur-sm text-on-surface px-8 py-4 rounded-xl font-bold hover:bg-surface-container-highest transition-colors">Our Story</button>
-                        </div>
                     </div>
                 </motion.div>
             </section>
 
-            {/* Menu Categories Navigation */}
-            <div className="flex flex-wrap gap-4 mb-12 items-center justify-center">
-                <button className="px-6 py-2 rounded-full bg-primary text-on-primary font-bold text-sm uppercase tracking-widest">All</button>
-                <button className="px-6 py-2 rounded-full bg-surface-container-highest text-on-surface-variant font-bold text-sm uppercase tracking-widest hover:bg-surface-container-high transition-colors">Espresso Based</button>
-                <button className="px-6 py-2 rounded-full bg-surface-container-highest text-on-surface-variant font-bold text-sm uppercase tracking-widest hover:bg-surface-container-high transition-colors">Creampresso</button>
-                <button className="px-6 py-2 rounded-full bg-surface-container-highest text-on-surface-variant font-bold text-sm uppercase tracking-widest hover:bg-surface-container-high transition-colors">Milk Based</button>
-                <button className="px-6 py-2 rounded-full bg-surface-container-highest text-on-surface-variant font-bold text-sm uppercase tracking-widest hover:bg-surface-container-high transition-colors">Refresher</button>
+            {/* Sticky Category Navigator */}
+            <div className="sticky top-28 z-40 mb-16 px-4">
+                <div className="glass-nav rounded-full px-2 py-2 flex items-center justify-center gap-2 max-w-fit mx-auto shadow-xl">
+                    {Object.keys(menuData).map((cat) => (
+                        <button
+                            key={cat}
+                            onClick={() => setActiveCategory(cat)}
+                            className={`px-8 py-3 rounded-full font-bold text-xs uppercase tracking-widest transition-all duration-300 ${activeCategory === cat
+                                    ? 'bg-primary text-white shadow-lg'
+                                    : 'text-on-surface-variant hover:text-primary'
+                                }`}
+                        >
+                            {cat}
+                        </button>
+                    ))}
+                </div>
             </div>
 
-            {/* Menu Grid: Espresso Based */}
-            <section className="mb-24">
-                <div className="flex items-baseline gap-4 mb-8">
-                    <h2 className="text-3xl font-black italic tracking-tighter uppercase text-primary">Espresso Based</h2>
-                    <div className="h-1 flex-grow bg-surface-container-low rounded-full"></div>
+            {/* Menu Section with Slider */}
+            <section className="relative group px-12">
+                <div className="flex items-center justify-between mb-12">
+                    <h2 className="text-4xl font-black italic tracking-tighter uppercase text-primary border-l-8 border-primary pl-6">
+                        {activeCategory}
+                    </h2>
+                    <div className="flex gap-3">
+                        <button
+                            onClick={() => scroll('left')}
+                            className="w-12 h-12 rounded-full border border-primary/20 flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-all shadow-sm active:scale-90"
+                        >
+                            <span className="material-symbols-outlined">arrow_back</span>
+                        </button>
+                        <button
+                            onClick={() => scroll('right')}
+                            className="w-12 h-12 rounded-full border border-primary/20 flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-all shadow-sm active:scale-90"
+                        >
+                            <span className="material-symbols-outlined">arrow_forward</span>
+                        </button>
+                    </div>
                 </div>
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    <div className="group relative bg-surface rounded-3xl p-6 transition-all duration-500 hover:bg-surface-container-low editorial-shadow">
-                        <div className="relative h-64 mb-6 overflow-hidden rounded-2xl bg-surface-container-high">
-                            <img className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" alt="latte art" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCbwFk3tHyE49NyOIzt4aJNHaIaV74v5QTGTVrN3klVbZFDDh88JzhPeL0PM6injZW_-4GwxHx3xxcSl1JHdVhcqG_WwW47pnmMZsH19bfXqlz8plg_Wncvm1gAmrPNi8mbP1a9SiTybwauu55GrDlfsNQjjf5IufDLiL1ZKqX67rZ0eG-s83w6MDk2bAXnVIOgeNfpDzkaM_MuwoD0Jcj1ly1-QJw-iSh-DJu1IBAPStPiPGnanuyGwYhjSP0F9rJ-ROJsC7M0IVc" />
-                            <div className="absolute top-4 right-4 bg-primary text-on-primary px-3 py-1 rounded-full text-xs font-bold">HOT/ICE</div>
-                        </div>
-                        <div className="flex justify-between items-start mb-2">
-                            <h3 className="text-xl font-bold tracking-tight">Kopi Susu Gula Aren</h3>
-                            <span className="text-lg font-black text-primary italic">25k</span>
-                        </div>
-                        <p className="text-on-surface-variant text-sm leading-relaxed mb-6">Signature espresso with creamy milk and local palm sugar syrup.</p>
-                        <button className="w-full py-3 rounded-xl border border-outline-variant/20 text-primary font-bold hover:bg-primary hover:text-on-primary transition-all">Add to Cart</button>
-                    </div>
 
-                    <div className="group relative bg-surface rounded-3xl p-6 transition-all duration-500 hover:bg-surface-container-low editorial-shadow">
-                        <div className="relative h-64 mb-6 overflow-hidden rounded-2xl bg-surface-container-high">
-                            <img className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" alt="iced americano" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCyICFpFDv68v-WwrQOs-mkhDwIe5FQDDfGocwoKNXdTgAhQHQu8swHYp2_OowPsU2OJM_LsG-l8WXI2AnvA-MAmm6Nu3hsvvW8uoIfCIHNfzBFpz1jLGlli8yAA6H6awgTx3Vb0IEghxV8zCBSZKj7Zks4MKD8bEH15v2GslLzGGfiWlkOR16V_ufyQvJl1ZYV7WJgXoFoIvnA7n0pD1Of_KEj8N-NvxFomlM1Gm4dQkvq2QDyF7RfjMz7RtNYahyrXDKVafLfHFg" />
-                            <div className="absolute top-4 right-4 bg-on-surface text-background px-3 py-1 rounded-full text-xs font-bold">ICE ONLY</div>
-                        </div>
-                        <div className="flex justify-between items-start mb-2">
-                            <h3 className="text-xl font-bold tracking-tight">Ice Americano</h3>
-                            <span className="text-lg font-black text-primary italic">20k</span>
-                        </div>
-                        <p className="text-on-surface-variant text-sm leading-relaxed mb-6">Double shot of house blend espresso over chilled mountain spring water.</p>
-                        <button className="w-full py-3 rounded-xl border border-outline-variant/20 text-primary font-bold hover:bg-primary hover:text-on-primary transition-all">Add to Cart</button>
-                    </div>
+                <div
+                    ref={scrollRef}
+                    className="flex overflow-x-auto gap-8 hide-scrollbar snap-x snap-mandatory pb-12"
+                >
+                    <AnimatePresence mode="wait">
+                        {menuData[activeCategory].map((menu, idx) => (
+                            <motion.div
+                                key={`${activeCategory}-${menu.name}`}
+                                initial={{ opacity: 0, x: 50 }}
+                                animate={{ opacity: 1, x: 0 }}
+                                exit={{ opacity: 0, x: -50 }}
+                                transition={{ delay: idx * 0.05 }}
+                                className="min-w-[340px] md:min-w-[380px] bg-surface-container-low rounded-[2.5rem] p-8 editorial-shadow transition-all duration-500 hover:scale-[1.02] snap-start border border-white/50"
+                            >
+                                <div className="space-y-6">
+                                    <div className="flex justify-between items-start">
+                                        <div className="flex-1 pr-4">
+                                            <div className="flex gap-2 mb-3">
+                                                {menu.sizes?.map(size => (
+                                                    <span key={size} className="text-[10px] font-black bg-primary/10 text-primary px-2 py-0.5 rounded-md uppercase">{size}</span>
+                                                ))}
+                                            </div>
+                                            <h3 className="text-2xl font-extrabold italic tracking-tight text-on-surface leading-tight mb-2 uppercase">
+                                                {menu.name}
+                                            </h3>
+                                            <p className="text-on-surface-variant text-sm font-medium line-clamp-2">
+                                                {menu.desc}
+                                            </p>
+                                        </div>
+                                        <div className="text-right">
+                                            <span className="text-3xl font-black text-primary italic leading-none">{menu.price}</span>
+                                        </div>
+                                    </div>
 
-                    <div className="group relative bg-surface rounded-3xl p-6 transition-all duration-500 hover:bg-surface-container-low editorial-shadow">
-                        <div className="relative h-64 mb-6 overflow-hidden rounded-2xl bg-surface-container-high">
-                            <img className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" alt="hazelnut mocha" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAoF2jOpnNDcopmIByWIp2SW37QaDgrjXwLMa6MrQ2fDh2fqT35JC0-jw-HnQSrIUatFgPJRAS2CQrRUBQazkfJay27cFVC78iVeILbYvtXwR9a-F2phS_bRDRWTeP3kVE_afvr11Q67unIE4OBRcMWdcd7EwRYuqdSuwC-eYT4UB7AWJcqc6fpF24fr1Ttwk4GeEgMnEQNQBKDx6aFIV6PfNSVAvdVdcMhY19SNGW_Y4tAIWgZ0GKVUw6rWSfV2ccMR2nNH_yO8fE" />
-                        </div>
-                        <div className="flex justify-between items-start mb-2">
-                            <h3 className="text-xl font-bold tracking-tight">Hazelnut Latte</h3>
-                            <span className="text-lg font-black text-primary italic">28k</span>
-                        </div>
-                        <p className="text-on-surface-variant text-sm leading-relaxed mb-6">Roasted hazelnut notes paired with silky micro-foam and bold espresso.</p>
-                        <button className="w-full py-3 rounded-xl border border-outline-variant/20 text-primary font-bold hover:bg-primary hover:text-on-primary transition-all">Add to Cart</button>
-                    </div>
+                                    <div className="h-px bg-on-surface/5 w-full"></div>
+
+                                    <button className="w-full bg-white text-primary border border-primary/10 py-4 rounded-2xl font-bold uppercase tracking-widest text-xs hover:bg-primary hover:text-white transition-all duration-300 shadow-sm flex items-center justify-center gap-2 group">
+                                        Add to Cart
+                                        <span className="material-symbols-outlined text-sm group-hover:translate-x-1 transition-transform">arrow_forward</span>
+                                    </button>
+                                </div>
+                            </motion.div>
+                        ))}
+                    </AnimatePresence>
                 </div>
             </section>
 
-            {/* Featured Section: Creampresso */}
-            <section className="mb-24 bg-surface-container-low rounded-[3rem] p-12 overflow-hidden relative">
-                <div className="absolute top-0 right-0 w-1/3 h-full opacity-10 pointer-events-none">
-                    <span className="material-symbols-outlined text-[300px] text-primary" style={{ fontVariationSettings: "'FILL' 1" }}>coffee_maker</span>
-                </div>
-                <div className="flex flex-col lg:flex-row gap-12 items-center">
-                    <div className="w-full lg:w-1/2">
-                        <span className="text-primary font-bold tracking-[0.2em] text-xs uppercase mb-4 block">Seasonal Signature</span>
-                        <h2 className="text-5xl font-black italic tracking-tighter text-on-surface mb-8">CREAM<span className="text-primary">PRESSO.</span></h2>
-                        <div className="space-y-6">
-                            <div className="flex justify-between items-center border-b border-outline-variant/10 pb-4">
-                                <div>
-                                    <h4 className="text-lg font-bold">Sea Salt Cream Espresso</h4>
-                                    <p className="text-sm text-on-surface-variant">Smooth crema with a touch of Mediterranean sea salt</p>
-                                </div>
-                                <span className="text-2xl font-black text-primary">32k</span>
+            {/* Customizer Section */}
+            <section className="mt-32 bg-primary rounded-[3rem] p-16 text-on-primary overflow-hidden relative shadow-2xl shadow-primary/30">
+                <div className="absolute -top-24 -right-24 w-96 h-96 bg-white/10 rounded-full blur-[100px]"></div>
+                <div className="relative z-10 grid lg:grid-cols-2 gap-16 items-center">
+                    <div>
+                        <span className="text-white/70 font-bold tracking-[0.2em] text-xs uppercase mb-6 block">Personalize your blend</span>
+                        <h2 className="text-5xl md:text-6xl font-black italic tracking-tighter mb-12">TAILORED <br />FOR <span className="text-on-primary/60">YOU.</span></h2>
+                        <div className="grid grid-cols-2 gap-8">
+                            <div>
+                                <h4 className="font-black text-lg mb-4 uppercase tracking-widest text-white/90">TOPPING</h4>
+                                <ul className="space-y-3">
+                                    <li className="flex justify-between text-sm"><span>Espresso Shot</span><span className="font-black">+6k</span></li>
+                                    <li className="flex justify-between text-sm"><span>Cookie Crumb</span><span className="font-black">+4k</span></li>
+                                    <li className="flex justify-between text-sm"><span>Ice Cream</span><span className="font-black">+5k</span></li>
+                                    <li className="flex justify-between text-sm"><span>Cheese Cream</span><span className="font-black">+5k</span></li>
+                                </ul>
                             </div>
-                            <div className="flex justify-between items-center border-b border-outline-variant/10 pb-4">
-                                <div>
-                                    <h4 className="text-lg font-bold">Tiramisu Cream Latte</h4>
-                                    <p className="text-sm text-on-surface-variant">Espresso layered with mascarpone-style cream and cocoa</p>
-                                </div>
-                                <span className="text-2xl font-black text-primary">35k</span>
-                            </div>
-                            <div className="flex justify-between items-center pb-4">
-                                <div>
-                                    <h4 className="text-lg font-bold">Oat Cream Cold Brew</h4>
-                                    <p className="text-sm text-on-surface-variant">12-hour cold extraction topped with airy oat cream</p>
-                                </div>
-                                <span className="text-2xl font-black text-primary">34k</span>
+                            <div>
+                                <h4 className="font-black text-lg mb-4 uppercase tracking-widest text-white/90">SYRUP</h4>
+                                <ul className="space-y-3">
+                                    <li className="flex justify-between text-sm"><span>Caramel</span><span className="font-black">+5k</span></li>
+                                    <li className="flex justify-between text-sm"><span>Gula Aren</span><span className="font-black">+5k</span></li>
+                                    <li className="flex justify-between text-sm"><span>Bailey's</span><span className="font-black">+5k</span></li>
+                                    <li className="flex justify-between text-sm"><span>Butterscooth</span><span className="font-black">+5k</span></li>
+                                </ul>
                             </div>
                         </div>
                     </div>
-                    <div className="w-full lg:w-1/2 relative flex justify-center">
-                        <div className="relative z-10 w-3/4 aspect-square rounded-3xl overflow-hidden editorial-shadow rotate-3 scale-95">
-                            <img className="w-full h-full object-cover" alt="cream pour" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD-HnCxHkWpdhCxTrj6WXSr8Vq2Y8eYdqtlWYYbG9b9Y5YXQCM6y8GHIt9A9GPdXYMgG-4NjVZ2OYfaanZbhgtNlsmByt8Fcog2xBjSRAKYEL5cFV6KQcdJ7rgYZZG-hH7qo9zUnl8OhRDX3kHfO62kd0tiZBoX16Fbwjht_eUJU720GJSJOqoVmAZdZbmwqlv9xbnHGlwx7BiNULraC6WHVrSWRVKtnn3pPm4WFcnV4iXJNVbmKFoEuihijYNnOe59-uvgmPkhJMg" />
-                        </div>
-                        <div className="absolute -bottom-8 left-8 z-20 bg-background p-6 rounded-2xl editorial-shadow">
-                            <p className="text-primary font-black italic text-3xl">MUST TRY!</p>
-                            <p className="text-xs uppercase tracking-widest font-bold mt-1">Limited Edition</p>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            {/* Bento Grid: Milk Based & Refresher */}
-            <section className="mb-24">
-                <div className="grid grid-cols-1 md:grid-cols-4 grid-rows-2 gap-6">
-                    <div className="md:col-span-2 md:row-span-2 bg-surface rounded-[2rem] p-8 editorial-shadow flex flex-col justify-between overflow-hidden relative min-h-[400px]">
-                        <div className="absolute top-0 right-0 w-full h-full">
-                            <img className="w-full h-full object-cover opacity-20" alt="strawberry milk drink" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBSVEKRG0wfeR-VZHiM0YSqPWr9OhKa_4yZloR8dcaMBegKY0GHUBBFcZ-3YCfLP2thdA0w0W8OFTuf01AcH308JLQi7bgW6GCmkxmVLqfr3f3CDxtUrJoemI97doQ0AdNoDb6kQtTA_1q8o2lPl4Ee-Q0ZL8jhaJetMiQqP9W_CGaHeX5tRMTcFGzslrAuHIJ3bhe9CoD9FHkeBYdHQUzAOyAPrXElXUoi53eh8nvZZ_Jtr04qCTsxqY2FE1dQDla0wQFCO_eQ2m4" />
-                        </div>
-                        <div className="relative z-10">
-                            <h2 className="text-3xl font-black italic tracking-tighter uppercase text-primary mb-6">Milk Based</h2>
-                            <div className="space-y-4">
-                                <div className="flex justify-between font-bold text-lg"><span>Matcha Latte</span><span>28k</span></div>
-                                <div className="flex justify-between font-bold text-lg"><span>Dark Chocolate</span><span>30k</span></div>
-                                <div className="flex justify-between font-bold text-lg"><span>Strawberry Cream</span><span>32k</span></div>
-                                <div className="flex justify-between font-bold text-lg"><span>Taro Bliss</span><span>28k</span></div>
-                            </div>
-                        </div>
-                        <div className="relative z-10 mt-8">
-                            <button className="primary-gradient text-on-primary px-8 py-3 rounded-xl font-bold">Full Milk Menu</button>
-                        </div>
-                    </div>
-
-                    <div className="md:col-span-2 bg-primary rounded-[2rem] p-8 text-on-primary flex items-center gap-6">
-                        <div className="w-1/3 aspect-square rounded-2xl overflow-hidden">
-                            <img className="w-full h-full object-cover" alt="refreshing drink" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDIXswTq8521IxVgGQZyq_0e652AxBYLGLDTpTBERIe3Vs-qDyAwfiywkPue7TQzaWa89WqDQeaLiZyXM59s4BG4Ktvc-d9qUkT05ilqRUydtoc-AxOkjaTgQ_MrIaG3V7pjRK-eHNvnG9lixqR0NymgQ6hmE7OQJuSaeWt-34JvZ0oYCVwSP9bNvBiifUrb_B1kbFiOjz7dCeHt13E3xu49oS7wsp3Ghy6m0gFrvKQpFEdN9igeALXR7Vh6ecwDnp_UbmnD8uLbms" />
-                        </div>
-                        <div>
-                            <h2 className="text-2xl font-black italic tracking-tighter uppercase mb-2">Refresher</h2>
-                            <p className="text-on-primary/80 text-sm mb-4">Iced Lychee Tea, Lemon Sparkler, Sunset Berry.</p>
-                            <span className="text-xl font-bold">Starting 22k</span>
-                        </div>
-                    </div>
-
-                    <div className="md:col-span-2 bg-secondary-container rounded-[2rem] p-8 flex items-center justify-between relative overflow-hidden">
-                        <div className="relative z-10">
-                            <h3 className="text-on-secondary-container font-black italic text-2xl">ZEGER REWARDS</h3>
-                            <p className="text-on-secondary-container/80 text-sm">Earn 10 points for every cup purchased.</p>
-                        </div>
-                        <div className="relative z-10">
-                            <span className="material-symbols-outlined text-5xl text-on-secondary-container">stars</span>
+                    <div className="flex justify-center">
+                        <div className="relative">
+                            <img src="/logo.png" className="w-56 h-56 object-contain opacity-20 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 blur-2xl" />
+                            <img src="/logo.png" className="w-56 h-56 object-contain relative z-10 drop-shadow-2xl" alt="Zeger Logo" />
                         </div>
                     </div>
                 </div>
