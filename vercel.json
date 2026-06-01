@@ -1,0 +1,9 @@
+{
+  "redirects": [
+    {
+      "source": "/backoffice",
+      "destination": "https://zeger-mobile-app.lovable.app/auth",
+      "permanent": false
+    }
+  ]
+}
